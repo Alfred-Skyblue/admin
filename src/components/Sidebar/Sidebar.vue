@@ -111,6 +111,10 @@ export default {
         line-height: 46px;
         padding-right: 40px;
       }
+      .el-menu-item.is-active {
+        background-color: #858b99 !important;
+        color: #fff !important;
+      }
     }
     .my-el-item {
       width: 100%;
