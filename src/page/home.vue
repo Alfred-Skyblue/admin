@@ -1,19 +1,22 @@
 <template>
   <div>
-<el-row :gutter="10">
-  <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple">
-    <Sidebar :navInfo="navInfo"></Sidebar>
-
-    </div></el-col>
-  <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple-light"></div></el-col>
-</el-row>
-
-      <router-view></router-view>
+    <el-row type="flex" class="my-el-row">
+      <el-col :span="4" class="sidebar-left"
+        ><div class=" grid-content bg-purple">
+          <sidebar :navInfo="navInfo"></sidebar></div
+      ></el-col>
+      <el-col :span="20"
+        ><div class="grid-content bg-purple-light">
+          <nav-top></nav-top>
+          <router-view></router-view></div
+      ></el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
 import Sidebar from '../components/Sidebar/Sidebar'
+import NavTop from '../components/NavTop/NavTop'
 export default {
   data () {
     return {
@@ -22,74 +25,87 @@ export default {
           id: 1,
           title: '管理中心',
           icon: 'el-icon-setting',
+          path: '/admin',
           children: [{ childTitle: '中心首页', id: 1 }]
         },
         {
           id: 2,
           title: '企业设置',
           icon: 'el-icon-office-building',
+          path: '/enterprise',
           children: [{ childTitle: '企业注册', id: 1 }]
         },
         {
           id: 3,
           title: '组织架构',
-          icon: 'el-icon-s-management'
+          icon: 'el-icon-s-management',
+          path: '/organization'
         },
         {
           id: 4,
           title: '职务权限',
-          icon: 'el-icon-s-check'
+          icon: 'el-icon-s-check',
+          path: '/duty'
         },
         {
           id: 5,
           title: '员工管理',
-          icon: 'el-icon-s-custom'
+          icon: 'el-icon-s-custom',
+          path: '/staff'
         },
         {
           id: 6,
           title: '模块管理',
-          icon: 'el-icon-s-grid'
+          icon: 'el-icon-s-grid',
+          path: '/module'
         },
         {
           id: 7,
           title: '产品管理',
-          icon: 'el-icon-box'
+          icon: 'el-icon-box',
+          path: '/admin'
         },
         {
           id: 8,
           title: '业务管理',
-          icon: 'el-icon-edit-outline'
+          icon: 'el-icon-edit-outline',
+          path: '/business'
         },
         {
           id: 9,
           title: '字段设置',
-          icon: 'el-icon-document'
+          icon: 'el-icon-document',
+          path: '/field'
         },
         {
           id: 10,
           title: '字典管理',
-          icon: 'el-icon-collection'
+          icon: 'el-icon-collection',
+          path: '/dictionaries'
         },
         {
           id: 11,
           title: '日志管理',
-          icon: 'el-icon-notebook-1'
+          icon: 'el-icon-notebook-1',
+          path: '/log'
         }
       ]
     }
   },
-  methods: {
-
-  },
+  methods: {},
   components: {
-    Sidebar
+    Sidebar,
+    NavTop
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.el-main{
-  position: relative;
-  top: 0;
+.my-el-row{
+  height: 100%;
+  .sidebar-left {
+  background-color: rgba(236, 239, 244, 1);
 }
+}
+
 </style>
