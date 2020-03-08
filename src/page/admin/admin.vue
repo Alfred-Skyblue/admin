@@ -1,39 +1,50 @@
 <template>
-  <div>
-    <el-row type="flex" class="my-el-row">
-      <el-col :span="4" class="sidebar-left"
-        ><div class=" grid-content bg-purple">
-          <sidebar :navInfo="navInfo"></sidebar></div
-      ></el-col>
-      <el-col :span="20"
-        ><div class="grid-content bg-purple-light">
-          <nav-top></nav-top>
-        <router-view></router-view></div>
-      </el-col>
-    </el-row>
+  <div class="dashboard">
+    <div class="content ">
+      <div class="clearfix">
+         <login-info :username='username' :lasttime="lasttime"></login-info>
+          <num :nums="nums"></num>
+      </div>
+      <module :modules="modules"></module>
+    </div>
   </div>
 </template>
 
 <script>
-import Sidebar from '../components/Sidebar/Sidebar'
-import NavTop from '../components/NavTop/NavTop'
+import loginInfo from './childCpns/loginInfo'
+import num from './childCpns/num'
+import module from './childCpns/module'
 export default {
+  name: 'admin',
+  components: {
+    loginInfo,
+    num,
+    module
+  },
   data () {
     return {
-      navInfo: [
+      username: '张三',
+      lasttime: '2020年2月2日 星期四 20:40:10',
+      nums: [
         {
-          id: 1,
-          title: '管理中心',
-          icon: 'el-icon-setting',
-          path: '/admin',
-          children: [{ childTitle: '中心首页', id: 1 }]
+          title: '员工数量',
+          num: 100
         },
+        {
+          title: '产品数量',
+          num: 100
+        },
+        {
+          title: '在线用户数量',
+          num: 100
+        }
+      ],
+      modules: [
         {
           id: 2,
           title: '企业设置',
           icon: 'el-icon-office-building',
-          path: '/enterprise',
-          children: [{ childTitle: '企业注册', id: 1 }]
+          path: '/enterprise'
         },
         {
           id: 3,
@@ -82,33 +93,30 @@ export default {
           title: '字典管理',
           icon: 'el-icon-collection',
           path: '/dictionaries'
-
         },
         {
           id: 11,
           title: '日志管理',
           icon: 'el-icon-notebook-1',
-          path: '/log',
-          children: [{ childTitle: 'test', id: 1, path: '/log/test' }]
+          path: '/log'
         }
       ]
     }
-  },
-  methods: {},
-  components: {
-    Sidebar,
-    NavTop
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
-.my-el-row{
-  height: 100%;
-  .sidebar-left {
-  background-color: rgba(236, 239, 244, 1);
+@import "assets/scss/base.scss";
+.dashboard {
+  padding: 30px 100px;
+  background:var(--color-background-main);
+  margin-top:5px;
+  height: 100vh;
+  .content {
+    border:1px solid #ccc;
+    background: #fff;
+    padding:50px;
+  }
 }
-}
-
 </style>

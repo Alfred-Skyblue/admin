@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../page/home.vue'
-import Admin from '../page/admin.vue'
+import Admin from '../page/admin/admin.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -39,7 +39,14 @@ const routes = [
       {
         path: '/log',
         name: 'log',
-        component: () => import('Page/log.vue')
+        component: () => import('Page/log.vue'),
+        children: [
+          {
+            path: '/log/test',
+            name: 'test',
+            component: () => import('Page/test.vue')
+          }
+        ]
       },
       {
         path: '/module',
