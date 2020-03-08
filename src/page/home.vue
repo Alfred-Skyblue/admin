@@ -74,12 +74,12 @@ export default {
             {
               childTitle: '业务参数',
               id: 0,
-              path: '/business/BusinessWarn'
+              path: '/business'
             },
             {
               childTitle: '提醒设置',
               id: 1,
-              path: '/business/BusinessWarn'
+              path: 'BusinessWarn'
             },
             { childTitle: '短信设置', id: 2 },
             { childTitle: '审批设置', id: 3 },

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../page/home.vue'
 import Admin from '../page/admin.vue'
+import BusinessWarn from '../page/business/BusinessWarn.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
         path: '/business',
         name: 'business',
         component: () => import('Page/business.vue')
+      },
+      {
+        path: '/BusinessWarn',
+        name: 'BusinessWarn',
+        component: BusinessWarn
       },
       {
         path: '/duty',

@@ -22,3 +22,7 @@ input{
 input:focus,a:focus{
   outline: none;
 }
+table{border:0;margin:0;border-collapse:collapse;border-spacing:0;}
+/*控制cellspacing*/
+table td{padding:0;}
+/*控制cellpadding*/
