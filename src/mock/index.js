@@ -1,13 +1,25 @@
 // 使用 Mock
-var Mock = require('mockjs')
-var data = Mock.mock({
-  // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
-  'list|1-10': [
-    {
-      // 属性 id 是一个自增数，起始值为 1，每次增 1
-      'id|+1': 1
-    }
-  ]
+import Mock from 'mockjs'
+
+/**
+ *
+ * 请求状态码
+ * 0  : 请求成功
+ * 10 : 未登录
+ */
+
+/*
+接口数据按照这样写
+Mock.mock('http://axure-admin.cn/test', 'get', function (option) {
+  console.log(option)
+  return Mock.mock({
+    data: {
+      arr: [1, 2, 3]
+    },
+    status: 0,
+    msg: '请求成功'
+  })
 })
-// 输出结果
-console.log(JSON.stringify(data, null, 4))
+*/
+
+Mock.mock()
