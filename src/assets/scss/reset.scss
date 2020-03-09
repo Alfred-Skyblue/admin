@@ -22,6 +22,12 @@ input{
 input:focus,a:focus{
   outline: none;
 }
+.fl{
+  float: left;
+}
+.ft{
+  float: right;
+}
 table{border:0;margin:0;border-collapse:collapse;border-spacing:0;}
 /*控制cellspacing*/
 table td{padding:0;}

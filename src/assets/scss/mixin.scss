@@ -1,0 +1,13 @@
+@mixin font-wide($size:16px,$weight:700,$color:#666666){
+  font-family: "微软雅黑 Bold", "微软雅黑 Regular", '微软雅黑', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin font-thin($size:14px,$color:#666666,$weight:400){
+  font-family: '微软雅黑', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
