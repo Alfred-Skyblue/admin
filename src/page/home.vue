@@ -88,8 +88,7 @@ export default {
           id: 11,
           title: '日志管理',
           icon: 'el-icon-notebook-1',
-          path: '/log',
-          children: [{ childTitle: 'test', id: 1, path: '/log/test' }]
+          path: '/log'
         }
       ]
     }

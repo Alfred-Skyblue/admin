@@ -6,6 +6,7 @@
           <num :nums="nums"></num>
       </div>
       <module :modules="modules"></module>
+      <notice :notices="notices"></notice>
     </div>
   </div>
 </template>
@@ -14,12 +15,16 @@
 import loginInfo from './childCpns/loginInfo'
 import num from './childCpns/num'
 import module from './childCpns/module'
+import notice from './childCpns/notice'
+import ApiPath from '@/api/ApiPath'
+
 export default {
   name: 'admin',
   components: {
     loginInfo,
     num,
-    module
+    module,
+    notice
   },
   data () {
     return {
@@ -100,8 +105,13 @@ export default {
           icon: 'el-icon-notebook-1',
           path: '/log'
         }
-      ]
+      ],
+      notices: []
     }
+  },
+  created () {
+    this.$http.get(ApiPath.notice.getPartNotice, {}, (res) => { console.log(res) })
+    // this.$http.get('/getuserinfo', {}, (res) => { console.log(res) })
   }
 }
 </script>
