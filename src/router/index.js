@@ -16,11 +16,39 @@ const routes = [
         name: 'admin',
         component: Admin
       },
+
+      // 以下为业务管理start
       {
         path: '/business',
         name: 'business',
         component: () => import('Page/business.vue')
       },
+      {
+        path: '/BusinessWarn',
+        name: 'BusinessWarn',
+        component: () => import('../page/business/BusinessWarn.vue')
+      },
+      {
+        path: '/BusinessNote',
+        name: 'BusinessNote',
+        component: () => import('../page/business/BusinessNote.vue')
+      },
+      {
+        path: '/BusinessMore',
+        name: 'BusinessMore',
+        component: () => import('../page/business/BusinessMore.vue')
+      },
+      {
+        path: '/BusinessCnki',
+        name: 'BusinessCnki',
+        component: () => import('../page/business/BusinessCnki.vue')
+      },
+      {
+        path: '/BusinessApproval',
+        name: 'BusinessApproval',
+        component: () => import('../page/business/BusinessApproval.vue')
+      },
+      // 以上为业务管理stop
       {
         path: '/duty',
         name: 'duty',

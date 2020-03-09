@@ -69,7 +69,39 @@ export default {
           id: 8,
           title: '业务管理',
           icon: 'el-icon-edit-outline',
-          path: '/business'
+          path: '/business',
+          children: [
+            {
+              childTitle: '业务参数',
+              id: 0,
+              path: '/business'
+            },
+            {
+              childTitle: '提醒设置',
+              id: 1,
+              path: '/BusinessWarn'
+            },
+            {
+              childTitle: '短信设置',
+              id: 2,
+              path: 'BusinessNote'
+            },
+            {
+              childTitle: '审批设置',
+              id: 3,
+              path: 'BusinessApproval'
+            },
+            {
+              childTitle: '查重设置',
+              id: 4,
+              path: 'BusinessCnki'
+            },
+            {
+              childTitle: '更多设置',
+              id: 5,
+              path: 'BusinessMore'
+            }
+          ]
         },
         {
           id: 9,
