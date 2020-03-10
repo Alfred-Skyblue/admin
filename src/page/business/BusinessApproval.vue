@@ -14,7 +14,7 @@
         <tbody>
           <tr v-for="item of List" :key="item.id">
             <td>审批</td>
-            <td>有新的审批时提醒处理人</td>
+            <td>有新的审批时提醒处理人新的审批时提醒处理人</td>
             <td>
               <template>
                 <el-checkbox-group v-model="item.checkList">
