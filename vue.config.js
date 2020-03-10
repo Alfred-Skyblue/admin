@@ -3,9 +3,9 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        Page: "@/page",
-        Components: "@/components"
+        Page: '@/page',
+        Components: '@/components'
       }
     }
   }
-};
+}
