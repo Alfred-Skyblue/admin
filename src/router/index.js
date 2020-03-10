@@ -39,14 +39,7 @@ const routes = [
       {
         path: '/log',
         name: 'log',
-        component: () => import('Page/log.vue'),
-        children: [
-          {
-            path: '/log/test',
-            name: 'test',
-            component: () => import('Page/test.vue')
-          }
-        ]
+        component: () => import('Page/log.vue')
       },
       {
         path: '/module',

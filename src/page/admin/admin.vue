@@ -16,6 +16,7 @@ import loginInfo from './childCpns/loginInfo'
 import num from './childCpns/num'
 import module from './childCpns/module'
 import notice from './childCpns/notice'
+import ApiPath from '@/api/ApiPath'
 
 export default {
   name: 'admin',
@@ -104,8 +105,12 @@ export default {
           icon: 'el-icon-notebook-1',
           path: '/log'
         }
-      ]
+      ],
+      notices: []
     }
+  },
+  created () {
+    this.$http.get(ApiPath.notice.getPartNotice).then((res) => { console.log(res) })
   }
 }
 </script>

@@ -34,7 +34,6 @@
                 :index="index + '-' + j"
                 v-for="(children, j) in item.children"
                 :key="children.id"
-              @click.native.stop="handleNavClick(children, children.path)"
                 >{{ children.childTitle }}</el-menu-item
               >
             </el-submenu>

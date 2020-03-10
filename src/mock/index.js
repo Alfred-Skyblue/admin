@@ -1,5 +1,13 @@
 // 使用 Mock
+require('@/mock/centermock')
+require('@/mock/noticemock')
+
 var Mock = require('mockjs')
+
+// 设置所有ajax请求的超时时间，模拟网络传输耗时
+Mock.setup({
+  timeout: 0 - 300
+})
 var data = Mock.mock({
   // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
   'list|1-10': [
