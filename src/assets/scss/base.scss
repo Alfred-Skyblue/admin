@@ -1,4 +1,33 @@
 html,body{
 	font-size: 16px;
-	height: 100%;
+  height: 100%;
+  background-color: #FCFCFC;
+}
+:root {
+  --color-text: #0079FE;
+  --color-high-text: #0079fe;
+  // --color-tint: #ff8198;
+  --color-background-main:#FCFCFC;
+	--color-background: #0079FE;
+	--color-active: #3399ff;
+  --font-size: 14px;
+  --line-height: 1.5;
+}
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clearfix {
+  zoom: 1;
 }

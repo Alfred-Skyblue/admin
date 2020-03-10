@@ -6,7 +6,7 @@ body,div,p,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,a,input,button,textarea,select{
 html,body{
   font-family:Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #fcfcfc;
   min-width: 1226px;
   font-size: 12px;
 }
@@ -22,3 +22,13 @@ input{
 input:focus,a:focus{
   outline: none;
 }
+.fl{
+  float: left;
+}
+.ft{
+  float: right;
+}
+table{border:0;margin:0;border-collapse:collapse;border-spacing:0;}
+/*控制cellspacing*/
+table td{padding:0;}
+/*控制cellpadding*/

@@ -4,7 +4,8 @@ module.exports = {
     resolve: {
       alias: {
         Page: '@/page',
-        Components: '@/components'
+        Components: '@/components',
+        assets: '@/assets'
       }
     }
   }

@@ -22,12 +22,11 @@
               v-for="(item, index) in navInfo"
               :key="item.id"
               :index="item.id.toString()"
-              @click.native="handleNavClick(item, item.path)"
+              @click.native.stop="handleNavClick(item, item.path)"
             >
               <template slot="title">
                 <div class="my-el-item">
                   <i :class="item.icon"></i>
-
                   <span>{{ item.title }}</span>
                 </div>
               </template>
@@ -35,6 +34,7 @@
                 :index="index + '-' + j"
                 v-for="(children, j) in item.children"
                 :key="children.id"
+                @click.native.stop="handleNavClick(children, children.path)"
                 >{{ children.childTitle }}</el-menu-item
               >
             </el-submenu>
@@ -61,10 +61,11 @@ export default {
   },
   methods: {
     handleNavClick (item, path) {
-      console.log(item)
-
+      console.log(path)
       this.$store.commit('setTopTitle', item)
-      this.$router.push(path)
+      if (path !== this.$route.path) { // 防止重复点击当前页面的报错
+        this.$router.push(path)
+      }
     }
   },
   mounted () {}

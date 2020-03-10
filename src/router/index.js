@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../page/home.vue'
-import Admin from '../page/admin.vue'
+import Admin from '../page/admin/admin.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,10 +16,43 @@ const routes = [
         name: 'admin',
         component: Admin
       },
+
+      // 以下为业务管理start
       {
         path: '/business',
         name: 'business',
         component: () => import('Page/business.vue')
+      },
+      {
+        path: '/BusinessWarn',
+        name: 'BusinessWarn',
+        component: () => import('../page/business/BusinessWarn.vue')
+      },
+      {
+        path: '/BusinessNote',
+        name: 'BusinessNote',
+        component: () => import('../page/business/BusinessNote.vue')
+      },
+      {
+        path: '/BusinessMore',
+        name: 'BusinessMore',
+        component: () => import('../page/business/BusinessMore.vue')
+      },
+      {
+        path: '/BusinessCnki',
+        name: 'BusinessCnki',
+        component: () => import('../page/business/BusinessCnki.vue')
+      },
+      {
+        path: '/BusinessApproval',
+        name: 'BusinessApproval',
+        component: () => import('../page/business/BusinessApproval.vue')
+      },
+      // 以上为业务管理stop
+      {
+        path: '/system',
+        name: 'system',
+        component: () => import('Page/system/system.vue')
       },
       {
         path: '/duty',
@@ -60,11 +93,6 @@ const routes = [
         path: '/staff',
         name: 'staff',
         component: () => import('Page/staff.vue')
-      },
-      {
-        path: '/system',
-        name: 'system',
-        component: () => import('Page/system.vue')
       },
       {
         path: '/dictionaries',

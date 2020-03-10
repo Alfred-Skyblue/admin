@@ -1,15 +1,12 @@
 <template>
   <div>
-    admin
+      business
   </div>
 </template>
 
 <script>
 export default {
-  name: 'admin',
-  mounted () {
-
-  }
+  name: 'business'
 }
 </script>
 
