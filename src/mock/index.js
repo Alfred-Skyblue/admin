@@ -1,4 +1,4 @@
-// 使用 Mock
+// 引入 mockjs
 import Mock from 'mockjs'
 
 /**
@@ -9,17 +9,16 @@ import Mock from 'mockjs'
  */
 
 /*
-接口数据按照这样写
+// 接口数据按照这样写
 Mock.mock('http://axure-admin.cn/test', 'get', function (option) {
   console.log(option)
   return Mock.mock({
     data: {
       arr: [1, 2, 3]
     },
-    status: 0,
+    status: 100,
     msg: '请求成功'
   })
 })
 */
-
-Mock.mock()
+console.log(Mock)

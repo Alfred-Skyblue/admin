@@ -1,12 +1,17 @@
 <template>
   <div>
-    system
+    <header class="system-header">
+      system
+    </header>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'system'
+  name: 'system',
+  data () {
+
+  }
 }
 </script>
 

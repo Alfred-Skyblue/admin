@@ -30,61 +30,68 @@ export default {
         },
         {
           id: 2,
+          title: '系统公告',
+          icon: 'el-icon-office-building',
+          path: '/system',
+          children: [{ childTitle: '系统公告', id: 1 }]
+        },
+        {
+          id: 3,
           title: '企业设置',
           icon: 'el-icon-office-building',
           path: '/enterprise',
           children: [{ childTitle: '企业注册', id: 1 }]
         },
         {
-          id: 3,
+          id: 4,
           title: '组织架构',
           icon: 'el-icon-s-management',
           path: '/organization'
         },
         {
-          id: 4,
+          id: 5,
           title: '职务权限',
           icon: 'el-icon-s-check',
           path: '/duty'
         },
         {
-          id: 5,
+          id: 6,
           title: '员工管理',
           icon: 'el-icon-s-custom',
           path: '/staff'
         },
         {
-          id: 6,
+          id: 7,
           title: '模块管理',
           icon: 'el-icon-s-grid',
           path: '/module'
         },
         {
-          id: 7,
+          id: 8,
           title: '产品管理',
           icon: 'el-icon-box',
           path: '/admin'
         },
         {
-          id: 8,
+          id: 9,
           title: '业务管理',
           icon: 'el-icon-edit-outline',
           path: '/business'
         },
         {
-          id: 9,
+          id: 10,
           title: '字段设置',
           icon: 'el-icon-document',
           path: '/field'
         },
         {
-          id: 10,
+          id: 11,
           title: '字典管理',
           icon: 'el-icon-collection',
           path: '/dictionaries'
         },
         {
-          id: 11,
+          id: 12,
           title: '日志管理',
           icon: 'el-icon-notebook-1',
           path: '/log'
