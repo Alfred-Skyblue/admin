@@ -14,32 +14,31 @@
         <el-radio v-model="radio" label="2">启动</el-radio>
       </div>
       <div class="main-rule">
-              <transition-group appear tag="div">
-        <el-row :gutter="20" class="content" >
-          <el-col :span="8"><div class="grid-content bg-purple left">
-          全员每月默认配额 ：
-          <el-input v-model="input" placeholder="500" class="content-input"></el-input>条
-          </div></el-col>
-          <el-col :span="16"><div class="grid-content bg-purple right">此规则针对：所有员工（特殊员工和超级管理员除外）</div></el-col>
-        </el-row>
-        <el-row :gutter="20" class="content" v-for="(item, index) of List" :key="item.id">
-          <el-col :span="8"><div class="grid-content bg-purple left">
-          全员每月默认配额 ：{{item.id}}
-          <el-input v-model="input" placeholder="1000" class="content-input"></el-input>条
-          </div>
-          </el-col>
-          <el-col :span="16"><div class="grid-content bg-purple right">此规则针对：
-            <div class="name-list">
-              <span class="staff-name" v-for="(item1 ,index1) of item.nameList" :key="index1">
-              {{item1}}
-              <i class="el-icon-close" @click="delClick(index, index1)"></i></span>
-
-              <span class="add el-icon-s-custom" @click="addClick(index)" value-key='index'></span>
+        <transition-group appear tag="div">
+          <el-row :gutter="20" class="content" >
+            <el-col :span="8"><div class="grid-content bg-purple left">
+            全员每月默认配额 ：
+            <el-input v-model="input" placeholder="500" class="content-input"></el-input>条
+            </div></el-col>
+            <el-col :span="16"><div class="grid-content bg-purple right">此规则针对：所有员工（特殊员工和超级管理员除外）</div></el-col>
+          </el-row>
+          <el-row :gutter="20" class="content" v-for="(item, index) of List" :key="item.id">
+            <el-col :span="8"><div class="grid-content bg-purple left">
+            全员每月默认配额 ：{{item.id}}
+            <el-input v-model="input" placeholder="1000" class="content-input"></el-input>条
             </div>
-            <span class="del" @click="delNameList(index)">删除</span>
-            </div>
-          </el-col>
-        </el-row>
+            </el-col>
+            <el-col :span="16"><div class="grid-content bg-purple right">此规则针对：
+              <div class="name-list">
+                <span class="staff-name" v-for="(item1 ,index1) of item.nameList" :key="index1">
+                {{item1}}
+                <i class="el-icon-close" @click="delClick(index, index1)"></i></span>
+                <span class="add el-icon-s-custom" @click="addClick(index)" value-key='index'></span>
+              </div>
+              <span class="del" @click="delNameList(index)">删除</span>
+              </div>
+            </el-col>
+          </el-row>
         </transition-group>
       </div>
     </main>
