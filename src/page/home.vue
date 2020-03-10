@@ -8,8 +8,8 @@
       <el-col :span="20"
         ><div class="grid-content bg-purple-light">
           <nav-top></nav-top>
-          <router-view></router-view></div
-      ></el-col>
+        <router-view></router-view></div>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -114,6 +114,7 @@ export default {
           title: '字典管理',
           icon: 'el-icon-collection',
           path: '/dictionaries'
+
         },
         {
           id: 11,
@@ -133,6 +134,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .my-el-row{
   height: 100%;
   .sidebar-left {

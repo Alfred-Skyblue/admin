@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../page/home.vue'
-import Admin from '../page/admin.vue'
+import Admin from '../page/admin/admin.vue'
 Vue.use(VueRouter)
 
 const routes = [
