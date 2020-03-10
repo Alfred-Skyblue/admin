@@ -5,28 +5,7 @@
       <span>提醒设置</span>
     </header>
     <main>
-      <table>
-        <thead>
-          <th>提醒</th>
-          <th>提醒</th>
-          <th>提醒</th>
-        </thead>
-        <tbody>
-          <tr v-for="item of List" :key="item.id">
-            <td>审批</td>
-            <td>有新的审批时提醒处理人新的审批时提醒处理人</td>
-            <td>
-              <template>
-                <el-checkbox-group v-model="item.checkList">
-                  <el-checkbox label="手机短信"></el-checkbox>
-                  <el-checkbox label="电子邮箱"></el-checkbox>
-                  <el-checkbox label="系统消息"></el-checkbox>
-                </el-checkbox-group>
-              </template>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+
     </main>
     <business-footer></business-footer>
   </div>
