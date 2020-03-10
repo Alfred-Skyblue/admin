@@ -2,10 +2,11 @@
   <div class="dashboard">
     <div class="content ">
       <div class="clearfix">
-         <login-info :username='username' :lasttime="lasttime"></login-info>
+        <login-info :username='username' :lasttime="lasttime"></login-info>
           <num :nums="nums"></num>
       </div>
       <module :modules="modules"></module>
+      <notice :notices="notices"></notice>
     </div>
   </div>
 </template>
@@ -14,12 +15,15 @@
 import loginInfo from './childCpns/loginInfo'
 import num from './childCpns/num'
 import module from './childCpns/module'
+import notice from './childCpns/notice'
+
 export default {
   name: 'admin',
   components: {
     loginInfo,
     num,
-    module
+    module,
+    notice
   },
   data () {
     return {
