@@ -86,7 +86,7 @@ export default {
             {
               childTitle: '提醒设置',
               id: 1,
-              path: '/BusinessWarn'
+              path: 'BusinessWarn'
             },
             {
               childTitle: '短信设置',
