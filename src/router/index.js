@@ -77,7 +77,7 @@ const routes = [
       {
         path: '/module',
         name: 'module',
-        component: () => import('Page/module.vue')
+        component: () => import('Page/module/module.vue')
       },
       {
         path: '/organization',
