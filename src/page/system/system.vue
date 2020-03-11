@@ -1,24 +1,25 @@
 <template>
   <div>
-    <div class="system-main">
+      <content-slot>
     <system-main></system-main>
-    </div>
+
+      </content-slot>
 
   </div>
 </template>
 
 <script>
 import SystemMain from './childCpns/SystemMain'
+import ContentSlot from '../../components/Content/Content'
 export default {
   name: 'system',
   components: {
-    SystemMain
+    SystemMain,
+    ContentSlot
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.system-main{
-  margin: 30px 100px;
-}
+
 </style>

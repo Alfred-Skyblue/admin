@@ -143,7 +143,7 @@ export default {
 <style lang="scss" scoped>
 
 .my-el-row{
-  height: 100%;
+  height: 100vh;
   .sidebar-left {
   background-color: rgba(236, 239, 244, 1);
 }

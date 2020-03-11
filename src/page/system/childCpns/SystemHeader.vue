@@ -3,19 +3,20 @@
     <!-- 系统公告头部 -->
 
     <el-row class="system-header">
-      <el-col :span="20">
+      <el-col :span="24">
         <header class="grid-content">
           <div class="system-content">
             <header>
               <el-row :gutter="10">
-                <el-col :span="4">
+                <el-col
+                :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
                   <div class="grid-content bg-purple">
                     <el-input v-model="henderInfo"
                               placeholder="请输入内容"
                               :style="style"></el-input>
                   </div>
                 </el-col>
-                <el-col :span="4">
+                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
                   <div class="grid-content bg-purple">
                     <el-input placeholder="发布时间"
                               suffix-icon="el-icon-date"
@@ -24,7 +25,7 @@
                     </el-input>
                   </div>
                 </el-col>
-                <el-col :span="4">
+                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
                   <div class="grid-content bg-purple">
                     <el-input placeholder="选择栏目"
                               suffix-icon="el-icon-arrow-down"
@@ -33,7 +34,7 @@
                     </el-input>
                   </div>
                 </el-col>
-                <el-col :span="4">
+                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
                   <div class="grid-content bg-purple">
                     <el-input placeholder="发布人员"
                               suffix-icon="el-icon-user-solid"
@@ -43,7 +44,7 @@
                   </div>
                 </el-col>
 
-                <el-col :span="8">
+                <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
                   <div class="grid-content">
                     <div class="grid-content my-header-button">
                       <el-button type="primary"><span class="el-icon-search"></span>搜索</el-button>

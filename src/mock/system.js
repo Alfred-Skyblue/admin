@@ -2,7 +2,7 @@ import ApiPath from '@/api/ApiPath'
 const Mock = require('mockjs')
 
 Mock.mock(ApiPath.system.tableData, 'get', {
-  'data|8-12': [{
+  'data|50-100': [{
     date: '@datetime()',
     name: '@cname()',
     title: '@cword(5,8)',
