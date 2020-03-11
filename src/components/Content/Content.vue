@@ -24,6 +24,8 @@ export default {
 .my-admin-content {
   background-color: #fff;
   margin: 30px 100px;
-  min-width: 946px;
+  min-width: 800px;
+  min-height: 760px;
+  box-sizing: border-box;
 }
 </style>

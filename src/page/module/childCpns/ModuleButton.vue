@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="clearfix">
   <div class="operation fr">
-      <el-button>默认按钮</el-button>
-      <el-button>默认按钮</el-button>
+      <el-button size="small">手动排序</el-button>
+      <el-button size="small">按字母排序</el-button>
     </div>
   </div>
 </template>
@@ -14,5 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.operation {
+  margin-bottom: 20px;
+}
 </style>
