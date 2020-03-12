@@ -87,6 +87,7 @@ export default {
     // 请求表格数据的方法
     async getSystemTableData () {
       const data = await this.$http.get(ApiPath.system.getSystemTableData)
+      console.log(data)
       this.tableData = data
     },
     // 设置表格的类名

@@ -51,7 +51,7 @@ export default {
       this.nums = res
     },
     async getModuleInfo () {
-      const res = await this.$http.get(ApiPath.center.getModuleInfo)
+      const res = await this.$http.get(ApiPath.module.getModuleInfo)
       this.modules = res
     },
     async getLoginInfo () {

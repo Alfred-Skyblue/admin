@@ -6,7 +6,7 @@ Mock.mock(ApiPath.center.statistic, 'get', function (option) {
     data: [
       {
         title: '员工数量',
-        'num|500': 500
+        'num|400': 500
       },
       {
         title: '在线人数',
@@ -21,7 +21,7 @@ Mock.mock(ApiPath.center.statistic, 'get', function (option) {
     msg: '请求成功'
   })
 })
-Mock.mock(ApiPath.center.getModuleInfo, 'get', function (option) {
+Mock.mock(ApiPath.module.getModuleInfo, 'get', function (option) {
   return Mock.mock({
     data: [
       {
