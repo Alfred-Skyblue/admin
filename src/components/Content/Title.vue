@@ -1,0 +1,28 @@
+<template>
+ <div class="title">
+   <slot>标题</slot>
+ </div>
+</template>
+
+<script>
+export default {
+  name: 'Title',
+  data () {
+    return {
+    }
+  }
+
+}
+
+</script>
+<style lang="scss" scoped>
+.title {
+  height: 15px;
+  line-height: 15px;
+  padding: 10px;
+  border-left:5px solid var(--color-text);
+  font-size: 16px;
+  font-weight: 700;
+  color:#666;
+}
+</style>

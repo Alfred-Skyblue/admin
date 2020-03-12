@@ -61,7 +61,7 @@ const routes = [
       {
         path: '/enterprise',
         name: 'enterprise',
-        component: () => import('Page/enterprise.vue')
+        component: () => import('Page/enterprise/enterprise.vue')
       },
       {
         path: '/field',

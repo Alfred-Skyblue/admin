@@ -25,8 +25,7 @@ export default {
           id: 1,
           title: '管理中心',
           icon: 'el-icon-setting',
-          path: '/admin',
-          children: [{ childTitle: '中心首页', id: 1 }]
+          path: '/admin'
         },
         {
           id: 2,
