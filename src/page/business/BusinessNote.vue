@@ -1,5 +1,5 @@
 <template>
-  <div class="business-warn">
+  <div class="business-note">
     <header>
       <i class="el-icon-edit-outline"></i>
       <span>提醒设置</span>
@@ -137,7 +137,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../assets/scss/mixin.scss';
 .v-enter,
 .v-leave-to {
@@ -158,7 +158,7 @@ export default {
 .v-leave-active {
     position: absolute;
 }
-.business-warn{
+.business-note{
   width: 1260px;
   background-color: #FCFCFC;
   margin-left: auto;
@@ -190,7 +190,7 @@ export default {
       line-height: 1;
       p {
         @include font-wide;
-        border-left: 5px solid #0079FE;
+        border-left: 5px solid $colorA;
         padding-left: 10px;
         margin-bottom: 40px;
       }
@@ -276,7 +276,7 @@ export default {
             }
           }
           .del{
-              @include font-thin(12px,#0079FE);
+              @include font-thin(12px,$colorA);
           }
         }
       }
