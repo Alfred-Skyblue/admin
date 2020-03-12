@@ -204,7 +204,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../assets/scss/mixin.scss';
 .business-approval{
   width: 1260px;
@@ -226,7 +226,7 @@ export default {
       line-height: 80px;
       margin-left: 50px;
       &:hover{
-        color: #0079fe;
+        color: $colorA;
       }
     }
   }
@@ -299,10 +299,10 @@ export default {
           text-align: center;
           border-radius: 3px;
           &:hover{
-            color: #0079fe;
-            border: 1px solid #0079fe;
+            color: $colorA;
+            border: 1px solid $colorA;
             i{
-              color: #0079fe;
+              color: $colorA;
             }
           }
           i{
@@ -330,34 +330,7 @@ export default {
           margin-left: 20px;
         }
       }
-      .approval-pass-ulst{
-        border: 1px solid #E4E4E4;
-        li:first-child{
-          background-color: #F5F5F5;
-          @include font-wide(12px);
-        }
-        li:last-child{
-          border-bottom: none;
-        }
-        li{
-          height: 40px;
-          line-height: 40px;
-          padding-left: 20px;
-          @include font-thin;
-          border-bottom: 1px solid #E4E4E4;
-        }
-        .left{
-          display: inline-block;
-          width: 69.9%;
-          height: 100%;
-          border-right: 1px solid #E4E4E4;
-        }
-        .right{
-          display: inline-block;
-          width: 29.9%;
-          text-align: center;
-        }
-      }
+      @include business-list;
       .announce{
         @include font-thin(14px,#999);
         height: 28px;

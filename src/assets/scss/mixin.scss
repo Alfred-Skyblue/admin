@@ -3,6 +3,7 @@
   font-weight: $weight;
   font-size: $size;
   color: $color;
+  font-style:normal
 }
 
 @mixin font-thin($size:14px,$color:#666666,$weight:400){
@@ -10,4 +11,48 @@
   font-weight: $weight;
   font-size: $size;
   color: $color;
+  font-style:normal
 }
+
+@mixin border-left () {
+  @include font-wide(14px);
+  border-left: 4px solid #0079FE;
+  padding-left: 8px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+@mixin business-list () {
+  .approval-pass-ulst{
+    border: 1px solid #E4E4E4;
+    li:first-child{
+      background-color: #F5F5F5;
+      @include font-wide(14px);
+    }
+    li:last-child{
+      border-bottom: none;
+    }
+    li{
+      height: 40px;
+      line-height: 40px;
+      padding-left: 20px;
+      @include font-thin;
+      border-bottom: 1px solid #E4E4E4;
+    }
+    .left,
+    .right{
+      display: inline-block;
+    }
+    .left{
+      width: 69.9%;
+      border-right: 1px solid #E4E4E4;
+    }
+    .right{
+      width: 29.9%;
+      text-align: center;
+    }
+  }
+}
+
+
+$colorA: #0079FE !default; //常用颜色

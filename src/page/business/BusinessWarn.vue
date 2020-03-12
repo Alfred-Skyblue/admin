@@ -83,8 +83,7 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../assets/scss/mixin.scss';
 .business-warn{
   width: 1260px;
@@ -138,7 +137,5 @@ export default {
       }
     }
   }
-
 }
-
 </style>
