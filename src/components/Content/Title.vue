@@ -17,9 +17,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .title {
-  height: 15px;
-  line-height: 15px;
-  padding: 10px;
+  height: 25px;
+  line-height: 25px;
+  padding-left: 10px;
   border-left:5px solid var(--color-text);
   font-size: 16px;
   font-weight: 700;
