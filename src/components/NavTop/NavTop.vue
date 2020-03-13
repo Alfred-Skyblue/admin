@@ -6,7 +6,6 @@
     <el-breadcrumb separator-class="el-icon-arrow-right" class="my-breadcrumb">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item v-for="item in crumbs" :key="item.id" :to="item.path">{{item.title}}</el-breadcrumb-item>
-
     </el-breadcrumb>
   </div>
 </template>
