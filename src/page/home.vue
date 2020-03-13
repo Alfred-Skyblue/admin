@@ -7,7 +7,7 @@
       ></el-col>
       <el-col :span="20"
         ><div class="grid-content bg-purple-light">
-          <nav-top></nav-top>
+          <nav-top :navInfo="navInfo"></nav-top>
         <router-view></router-view></div>
       </el-col>
     </el-row>
@@ -32,14 +32,14 @@ export default {
           title: '系统公告',
           icon: 'el-icon-office-building',
           path: '/system',
-          children: [{ childTitle: '系统公告', id: 1 }]
+          children: [{ childTitle: '系统公告', id: '01' }]
         },
         {
           id: 3,
           title: '企业设置',
           icon: 'el-icon-office-building',
           path: '/enterprise',
-          children: [{ childTitle: '企业注册', id: 1 }]
+          children: [{ childTitle: '企业注册', id: '01' }]
         },
         {
           id: 4,
@@ -79,33 +79,33 @@ export default {
           children: [
             {
               childTitle: '业务参数',
-              id: 0,
+              id: '01',
               path: '/business'
             },
             {
               childTitle: '提醒设置',
-              id: 1,
-              path: '/BusinessWarn'
+              id: '02',
+              path: 'BusinessWarn'
             },
             {
               childTitle: '短信设置',
-              id: 2,
-              path: '/BusinessNote'
+              id: '03',
+              path: 'BusinessNote'
             },
             {
               childTitle: '审批设置',
-              id: 3,
-              path: '/BusinessApproval'
+              id: '04',
+              path: 'BusinessApproval'
             },
             {
               childTitle: '查重设置',
-              id: 4,
-              path: '/BusinessCnki'
+              id: '05',
+              path: 'BusinessCnki'
             },
             {
               childTitle: '更多设置',
-              id: 5,
-              path: '/BusinessMore'
+              id: '06',
+              path: 'BusinessMore'
             }
           ]
         },

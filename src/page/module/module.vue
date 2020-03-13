@@ -1,21 +1,21 @@
 <template>
   <div>
-    <Content :styleContent="{padding:'20px'}">
+    <module-content :styleContent="{padding:'20px'}">
     <module-button></module-button>
     <module-table></module-table>
-    </Content>
+    </module-content>
   </div>
 </template>
 
 <script>
 import ModuleButton from './childCpns/ModuleButton'
-import Content from 'Components/Content/Content'
+import ModuleContent from './childCpns/ModuleContent'
 import ModuleTable from './childCpns/ModuleTable'
 export default {
   name: 'module',
   components: {
     ModuleButton,
-    Content,
+    ModuleContent,
     ModuleTable
   }
 }

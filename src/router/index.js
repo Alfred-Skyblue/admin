@@ -53,7 +53,7 @@ const routes = [
       {
         path: '/organization',
         name: 'organization',
-        component: () => import('Page/organization.vue')
+        component: () => import('Page/organization/organization.vue')
       },
       {
         path: '/product',
