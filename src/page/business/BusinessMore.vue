@@ -1,15 +1,13 @@
 <template>
   <div class="business-more">
     <header>
-        <a href="javascript:;" v-for="item of List" :key="item.id" @click="handleMoreClick()">{{item.name}}</a>
+        <a href="javascript:;" v-for="item of List" :key="item.id" @click="handleMoreClick(item.path)">{{item.name}}</a>
     </header>
     <router-view></router-view>
-    <business-footer></business-footer>
   </div>
 </template>
 
 <script>
-import BusinessFooter from './BusinessFooter'
 export default {
   name: 'BusinessMore',
   data () {
@@ -51,7 +49,7 @@ export default {
     businessList: Array
   },
   components: {
-    BusinessFooter
+
   },
   methods: {
     handleMoreClick (path) {
@@ -80,12 +78,11 @@ export default {
     background-color: #fff;
     border: 1px solid #E9E9E9;
     border-bottom: none;
-    padding-left: 20px;
     a{
       @include font-wide(14px);
       text-align: left;
       line-height: 80px;
-      margin-left: 50px;
+      margin-left: 30px;
       &:hover{
         color: $colorA;
       }

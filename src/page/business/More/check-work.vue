@@ -1,5 +1,5 @@
 <template>
-  <div class="business-more">
+  <div class="check-work">
     <main>
       <div class="main-header">
         <p class="header">
@@ -87,7 +87,7 @@
 <script>
 import BusinessFooter from '../BusinessFooter'
 export default {
-  name: 'BusinessMore',
+  name: 'CheckWork',
   data () {
     return {
       input: '',
@@ -118,11 +118,7 @@ export default {
 
 <style lang="scss">
 @import '../../../assets/scss/mixin.scss';
-.business-more{
-  width: 1260px;
-  background-color: #FCFCFC;
-  margin-left: auto;
-  margin-right: auto;
+.check-work{
   main{
     box-sizing: border-box;
     width: 1260px;
