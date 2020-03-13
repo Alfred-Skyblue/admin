@@ -1,6 +1,6 @@
 <template>
   <div>
-    <system-header></system-header>
+    <system-header @filter="handlefilter"></system-header>
     <div class="system-main">
       <header>
         <el-button type="primary" icon="el-icon-plus" size="small"
@@ -69,9 +69,9 @@ export default {
   name: 'StstemMain',
   data () {
     return {
-      tableData: [{ operation: { details: '详情' } }],
       currentPage: 1, // 默认显示第一页
-      pageSize: 10 // 默认每页显示10条
+      pageSize: 10, // 默认每页显示10条
+      tableData: []
     }
   },
   created () {
@@ -83,6 +83,7 @@ export default {
     async getSystemTableData () {
       const data = await this.$http.get(ApiPath.system.getSystemTableData)
       this.tableData = data
+      console.log(data)
     },
     // 设置表格的类名
     tableRowClassName ({ row, rowIndex }) {
@@ -106,6 +107,15 @@ export default {
     },
     CurrentChange (val) {
       this.currentPage = val
+    },
+    handlefilter (henderInfo, time, staff) {
+      // 通过数组的 filter 方法实现筛选功能
+      if (henderInfo) this.tableData = this.tableData.filter((item) => item.title === henderInfo)
+      if (time) this.tableData = this.tableData.filter((item) => item.date === time)
+      if (staff) this.tableData = this.tableData.filter((item) => item.name === staff)
+      if (!henderInfo && !time && !staff) {
+        this.getSystemTableData()
+      }
     }
   },
   components: {

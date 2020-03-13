@@ -23,10 +23,13 @@ export default {
       state.crumbs[1] = crumbs
     }
   },
+  // 面包屑点击处理
   setNavTopCrumbs (state, index) {
     if (index !== undefined) {
+      // 如果有index，则根据index切割crumbs
       state.crumbs = state.crumbs.splice(0, index + 1)
     } else {
+      // 点击首页，不传入index，清空数组
       state.crumbs = []
     }
   }
