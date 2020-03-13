@@ -1,21 +1,21 @@
 <template>
   <div>
-      <content-slot>
+      <system-content>
     <system-main></system-main>
 
-      </content-slot>
+      </system-content>
 
   </div>
 </template>
 
 <script>
 import SystemMain from './childCpns/SystemMain'
-import ContentSlot from '../../components/Content/Content'
+import SystemContent from './childCpns/SystemContent'
 export default {
   name: 'system',
   components: {
     SystemMain,
-    ContentSlot
+    SystemContent
   }
 }
 </script>

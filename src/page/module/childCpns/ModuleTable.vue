@@ -38,7 +38,6 @@ export default {
         ApiPath.moduleSupport.getModuleTableData
       )
       this.tableData = data
-      console.log(data)
     }
   }
 }

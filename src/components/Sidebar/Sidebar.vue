@@ -61,8 +61,19 @@ export default {
   },
   methods: {
     handleNavClick (item, path) {
-      console.log(path)
-      this.$store.commit('setTopTitle', item)
+      // console.log(item)
+
+      // console.log(path)
+      if (item.childTitle) {
+        item.title = item.childTitle
+        this.$store.commit('setTopTitle', item)
+        this.$store.commit('setCrumbs', item)
+      } else {
+        console.log(item)
+        this.$store.commit('setTopTitle', item)
+        this.$store.commit('setCrumbs', item)
+      }
+
       if (path !== this.$route.path) { // 防止重复点击当前页面的报错
         this.$router.push(path)
       }

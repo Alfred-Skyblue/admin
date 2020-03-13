@@ -8,33 +8,47 @@
           <div class="system-content">
             <header>
               <el-row :gutter="10">
-                <el-col
-                :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                <el-col :xs="4"
+                        :sm="4"
+                        :md="4"
+                        :lg="4"
+                        :xl="4">
                   <div class="grid-content bg-purple">
                     <el-input v-model="henderInfo"
                               placeholder="请输入内容"
                               :style="style"></el-input>
                   </div>
                 </el-col>
-                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                <el-col :xs="4"
+                        :sm="4"
+                        :md="4"
+                        :lg="4"
+                        :xl="4">
+                  <el-date-picker type="date"
+                                  placeholder="发布时间">
+                  </el-date-picker>
+                </el-col>
+                <el-col :xs="4"
+                        :sm="4"
+                        :md="4"
+                        :lg="4"
+                        :xl="4">
                   <div class="grid-content bg-purple">
-                    <el-input placeholder="发布时间"
-                              suffix-icon="el-icon-date"
-                              v-model="time"
-                              :style="style">
-                    </el-input>
+                    <el-select v-model="value"
+                               placeholder="选择栏目">
+                      <el-option v-for="item in options"
+                                 :key="item.value"
+                                 :label="item.label"
+                                 :value="item.value">
+                      </el-option>
+                    </el-select>
                   </div>
                 </el-col>
-                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-                  <div class="grid-content bg-purple">
-                    <el-input placeholder="选择栏目"
-                              suffix-icon="el-icon-arrow-down"
-                              v-model="column"
-                              :style="style">
-                    </el-input>
-                  </div>
-                </el-col>
-                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                <el-col :xs="4"
+                        :sm="4"
+                        :md="4"
+                        :lg="4"
+                        :xl="4">
                   <div class="grid-content bg-purple">
                     <el-input placeholder="发布人员"
                               suffix-icon="el-icon-user-solid"
@@ -44,7 +58,11 @@
                   </div>
                 </el-col>
 
-                <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+                <el-col :xs="8"
+                        :sm="8"
+                        :md="8"
+                        :lg="8"
+                        :xl="8">
                   <div class="grid-content">
                     <div class="grid-content my-header-button">
                       <el-button type="primary"><span class="el-icon-search"></span>搜索</el-button>
@@ -73,7 +91,21 @@ export default {
       style: {
         minWidth: '110px',
         marginRight: '5px'
-      }
+      },
+      options: [{
+        value: '选项1',
+        label: '马拉松'
+      }, {
+        value: '选项2',
+        label: '山地越野'
+      }, {
+        value: '选项3',
+        label: '铁人三项'
+      }, {
+        value: '选项4',
+        label: '游泳'
+      }],
+      value: ''
     }
   }
 }
@@ -100,6 +132,9 @@ export default {
   }
   .el-input__inner {
     min-width: 120px !important;
+  }
+  /deep/ .el-date-editor.el-input {
+    width: 100%;
   }
 }
 </style>
