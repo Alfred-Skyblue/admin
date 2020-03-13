@@ -200,10 +200,6 @@ export default {
 <style lang="scss">
 @import '../../../assets/scss/mixin.scss';
 .order{
-  width: 1260px;
-  background-color: #FCFCFC;
-  margin-left: auto;
-  margin-right: auto;
   header{
     box-sizing: border-box;
     margin-top: 20px;
@@ -232,16 +228,7 @@ export default {
     padding-left: 120px;
     .content{
       width: 1000px;
-      .on-off{
-        position: relative;
-        p {
-          @include font-thin(14px,#999);
-          margin: 30px 0;
-        }
-        p:nth-of-type(2){
-          margin-top: -20px;
-        }
-      }
+      @include on-off;
       .body-content{
         position: relative;
         ul{
@@ -302,11 +289,7 @@ export default {
             @include font-thin($size:14px,$color:#999,$weight: 700);
           }
         }
-        .approval-font{
-          margin-top: 30px;
-          @include font-thin(14px,#999);
-          line-height: 30px;
-        }
+        @include approval-info;
       }
       .approval-pass {
           @include font-thin;

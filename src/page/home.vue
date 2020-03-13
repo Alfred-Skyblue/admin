@@ -85,27 +85,27 @@ export default {
             {
               childTitle: '提醒设置',
               id: '02',
-              path: 'BusinessWarn'
+              path: '/BusinessWarn'
             },
             {
               childTitle: '短信设置',
               id: '03',
-              path: 'BusinessNote'
+              path: '/BusinessNote'
             },
             {
               childTitle: '审批设置',
               id: '04',
-              path: 'BusinessApproval'
+              path: '/BusinessApproval'
             },
             {
               childTitle: '查重设置',
               id: '05',
-              path: 'BusinessCnki'
+              path: '/BusinessCnki'
             },
             {
               childTitle: '更多设置',
               id: '06',
-              path: 'BusinessMore'
+              path: '/BusinessMore'
             }
           ]
         },

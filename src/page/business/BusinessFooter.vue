@@ -1,6 +1,6 @@
 <template>
   <div class="success-button">
-    <el-button type="primary">
+    <el-button type="primary" class="button">
       <i class="el-icon-success success-icon"></i>
       确定
     </el-button>
@@ -14,6 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/scss/mixin.scss';
 .success-button{
   margin-top: 50px;
   text-align: center;
@@ -22,6 +23,9 @@ export default {
     color: #fff;
     font-weight: 400;
     margin-right: 4px;
+  }
+  .button {
+    background-color: $colorA;
   }
 }
 </style>

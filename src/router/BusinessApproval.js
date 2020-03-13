@@ -18,7 +18,35 @@ export default [
   {
     path: 'BusinessMore',
     name: 'BusinessMore',
-    component: () => import('../page/business/BusinessMore')
+    component: () => import('../page/business/BusinessMore'),
+    redirect: '/BusinessMore/CheckWork',
+    children: [
+      {
+        path: 'CheckWork',
+        name: 'CheckWork',
+        component: () => import('../page/business/More/check-work')
+      },
+      {
+        path: 'other',
+        name: 'other',
+        component: () => import('../page/business/More/other')
+      },
+      {
+        path: 'report',
+        name: 'report',
+        component: () => import('../page/business/More/report')
+      },
+      {
+        path: 'safe',
+        name: 'safe',
+        component: () => import('../page/business/More/safe')
+      },
+      {
+        path: 'WorkDay',
+        name: 'WorkDay',
+        component: () => import('../page/business/More/work-day')
+      }
+    ]
   },
   {
     path: 'BusinessCnki',

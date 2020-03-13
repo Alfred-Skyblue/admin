@@ -38,7 +38,7 @@ export default {
         },
         {
           id: '05',
-          title: '办公审批',
+          title: '办工审批',
           path: 'work'
         }
       ]
