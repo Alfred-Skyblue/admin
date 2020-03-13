@@ -63,13 +63,12 @@ export default {
     handleNavClick (item, path) {
       // console.log(item)
 
-      // console.log(path)
+      console.log(path)
       if (item.childTitle) {
         item.title = item.childTitle
         this.$store.commit('setTopTitle', item)
         this.$store.commit('setCrumbs', item)
       } else {
-        console.log(item)
         this.$store.commit('setTopTitle', item)
         this.$store.commit('setCrumbs', item)
       }

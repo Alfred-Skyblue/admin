@@ -32,14 +32,14 @@ export default {
           title: '系统公告',
           icon: 'el-icon-office-building',
           path: '/system',
-          children: [{ childTitle: '系统公告', id: '01' }]
+          children: [{ childTitle: '系统公告', id: 10, path: '/system' }]
         },
         {
           id: 3,
           title: '企业设置',
           icon: 'el-icon-office-building',
           path: '/enterprise',
-          children: [{ childTitle: '企业注册', id: '01' }]
+          children: [{ childTitle: '企业注册', id: 10, path: '/enterprise' }]
         },
         {
           id: 4,

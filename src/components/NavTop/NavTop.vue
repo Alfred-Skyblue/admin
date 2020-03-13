@@ -4,8 +4,8 @@
       <i :class="topTitle.icon"></i><span>{{ topTitle.title }}</span>
     </header>
     <el-breadcrumb separator-class="el-icon-arrow-right" class="my-breadcrumb">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item v-for="item in crumbs" :key="item.id" :to="item.path">{{item.title}}</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/' }" @click.native="handleCrumbs()">首页</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="(item,index) in crumbs" :key="item.id" :to="item.path" @click.native="handleCrumbs(index)">{{item.title}}</el-breadcrumb-item>
 
     </el-breadcrumb>
   </div>
@@ -32,6 +32,11 @@ export default {
     },
     crumbs () {
       return this.$store.state.crumbs
+    }
+  },
+  methods: {
+    handleCrumbs (index) {
+      this.$store.commit('setNavTopCrumbs', index)
     }
   }
 }

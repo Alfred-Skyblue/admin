@@ -7,5 +7,9 @@ export default {
   // 设置面包屑
   setCrumbs (context, crumbs) {
     context.commit('setCrumbs', crumbs)
+  },
+
+  setNavTopCrumbs (context, index) {
+    context.commit('setNavTopCrumbs', index)
   }
 }
