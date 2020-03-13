@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../page/home.vue'
 import Admin from '../page/admin/admin.vue'
+import BusinessApproval from './BusinessApproval'
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,37 +18,8 @@ const routes = [
         component: Admin
       },
       // 以下为业务管理start
-      {
-        path: '/business',
-        name: 'business',
-        component: () => import('../page/business/business.vue')
-      },
-      {
-        path: '/BusinessWarn',
-        name: 'BusinessWarn',
-        component: () => import('../page/business/BusinessWarn.vue')
-      },
-      {
-        path: '/BusinessNote',
-        name: 'BusinessNote',
-        component: () => import('../page/business/BusinessNote.vue')
-      },
-      {
-        path: '/BusinessMore',
-        name: 'BusinessMore',
-        component: () => import('../page/business/BusinessMore.vue')
-      },
-      {
-        path: '/BusinessCnki',
-        name: 'BusinessCnki',
-        component: () => import('../page/business/BusinessCnki.vue')
-      },
-      {
-        path: '/BusinessApproval',
-        name: 'BusinessApproval',
-        component: () => import('../page/business/BusinessApproval.vue')
-      },
-      // 以上为业务管理stop
+      ...BusinessApproval,
+      // stop
       {
         path: '/system',
         name: 'system',
