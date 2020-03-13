@@ -38,8 +38,7 @@ export default {
           id: 3,
           title: '企业设置',
           icon: 'el-icon-office-building',
-          path: '/enterprise',
-          children: [{ childTitle: '企业注册', id: '01' }]
+          path: '/enterprise'
         },
         {
           id: 4,
@@ -140,7 +139,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .my-el-row{
   height: 100vh;
   .sidebar-left {

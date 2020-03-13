@@ -31,3 +31,14 @@ html,body{
 .clearfix {
   zoom: 1;
 }
+// 必填项的*
+.required .el-form-item__label::before {
+  content: "*";
+  position: absolute;
+  color: #f00;
+  left: -2px;
+  font-size: 16px;
+}
+button:hover,a:hover,input[type="button"]:hover {
+  cursor: pointer;
+}
