@@ -2,6 +2,11 @@
   <div class="my-header-top">
     <header>
       <i :class="topTitle.icon"></i><span>{{ topTitle.title }}</span>
+      <a href="javascript:;"
+      v-for="item of $store.state.BusinessList"
+      :key="item.id"
+      @click="handleNavClick(item.path)"
+      >{{item.childTitle}}</a>
     </header>
     <el-breadcrumb separator-class="el-icon-arrow-right"
                    class="my-breadcrumb">
@@ -41,30 +46,53 @@ export default {
   methods: {
     handleCrumbs (index) {
       this.$store.commit('setNavTopCrumbs', index)
+    },
+    handleNavClick (path) {
+      if (path !== this.$route.path) { // 防止重复点击当前页面的报错
+        this.$router.push(path)
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.my-header-top {
+@import '../../assets/scss/mixin.scss';
+.my-header-top{
   position: fixed;
   width: 100%;
   z-index: 9;
   top: 0;
   background-color: #fcfcfc;
-  header {
-    height: 60px;
-    box-shadow: 0px 3px 5px rgba(153, 153, 153, 0.2);
-    line-height: 60px;
-    padding-left: 26px;
-    color: #999;
-    span {
-      margin-left: 5px;
+header {
+  height: 60px;
+  box-shadow: 0px 3px 5px rgba(153, 153, 153, 0.2);
+  line-height: 60px;
+  padding-left: 20px;
+  color: #999;
+  span {
+    margin: 0 60px 0 5px;
+    @include font-thin(16px,#999)
+  }
+  i{
+    @include font-wide(16px,#999)
+  }
+  a{
+    display: inline-block;
+    @include font-thin;
+    width: 100px;
+    height: 58px;
+    text-align: center;
+    &:hover{
+      border-bottom: 2px solid $colorA;
+      color: $colorA;
     }
   }
-  .my-breadcrumb {
-    margin: 26px 0 10px 26px;
-  }
+
 }
+ .my-breadcrumb {
+    margin: 26px 0 10px 26px;
+ }
+}
+
 </style>

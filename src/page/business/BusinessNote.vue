@@ -139,25 +139,6 @@ export default {
 
 <style lang="scss">
 @import '../../assets/scss/mixin.scss';
-.v-enter,
-.v-leave-to {
-    opacity: 0;
-    transform: translateY(80px);
-}
-
-.v-enter-active,
-.v-leave-active {
-    transition: all 0.6s ease;
-}
-
-/* 下面的 .v-move 和 .v-leave-active 配合使用，能够实现列表后续的元素，渐渐地漂上来的效果 */
-.v-move {
-    transition: all 0.6s ease;
-}
-
-.v-leave-active {
-    position: absolute;
-}
 .business-note{
   width: 1260px;
   background-color: #FCFCFC;
@@ -174,7 +155,7 @@ export default {
     padding-left: 20px;
     i,
     span{
-      @include font-wide;
+      @include font-wide(14px);
       text-align: left;
       line-height: 60px;
       margin-left: 3px;
@@ -203,20 +184,6 @@ export default {
       margin-top: 30px;
       margin-bottom: 20px;
       @include font-thin;
-      .choose-start,
-      .choose-stop{
-        display: inline-block;
-        vertical-align: bottom;
-        width: 14px;
-        height: 14px;
-        background-color: #fff;
-        border-radius: 8px;
-        border: 1px solid #C2C2C2;
-        margin-right: 8px;
-      }
-      .choose-start{
-        margin-left: 10px;
-      }
     }
     .main-rule {
       width: 1140px;

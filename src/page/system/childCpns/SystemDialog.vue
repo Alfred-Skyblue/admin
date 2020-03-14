@@ -6,7 +6,8 @@
                :visible.sync="dialogFormVisible"
                :close-on-click-modal="false"
                :show-close="false"
-               :close-on-press-escape="false">
+               :close-on-press-escape="false"
+               :closed="handleclose">
       <el-form :model="form">
         <el-form-item label="公告标题"
                       :label-width="formLabelWidth">
@@ -77,7 +78,9 @@ export default {
       this.$emit('addaddTableData', this.form)
       this.$emit('dialogFormChange', false)
       this.$message.success('发布成功')
-      // form 表单绑定的 value 都置为空
+    },
+    // form 表单绑定的 value 都置为空
+    handleclose () {
       for (const key in this.form) {
         this.form[key] = ''
       }

@@ -32,5 +32,13 @@ export default {
       // 点击首页，不传入index，清空数组
       state.crumbs = []
     }
+  },
+  // 头部导航内容复制
+  addNavTopTitle (state, BusinessList) {
+    state.BusinessList = BusinessList
+  },
+  // 如果没有则清空
+  delNavTopTitle (state) {
+    state.BusinessList = []
   }
 }

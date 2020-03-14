@@ -8,10 +8,10 @@
           <sidebar :navInfo="navInfo"></sidebar>
         </div>
       </el-col>
-      <el-col :span="24">
+      <el-col :span="24" >
         <div class="grid-content bg-purple-light">
           <nav-top :navInfo="navInfo"></nav-top>
-          <router-view></router-view>
+          <router-view class="my-home-content"></router-view>
         </div>
       </el-col>
     </el-row>
@@ -153,6 +153,9 @@ export default {
     min-width: 220px;
     height: 100%;
     background-color: rgba(236, 239, 244, 1);
+  }
+  .my-home-content{
+    margin-left: 20px;
   }
 }
 </style>
