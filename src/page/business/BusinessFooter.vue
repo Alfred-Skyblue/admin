@@ -2,7 +2,7 @@
   <div class="success-button">
     <el-button type="primary" class="button">
       <i class="el-icon-success success-icon"></i>
-      确定
+      保存
     </el-button>
   </div>
 </template>
@@ -25,6 +25,7 @@ export default {
     margin-right: 4px;
   }
   .button {
+    width: 140px;
     background-color: $colorA;
   }
 }

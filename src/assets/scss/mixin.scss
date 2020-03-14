@@ -14,9 +14,9 @@
   font-style:normal
 }
 
-@mixin border-left () {
-  @include font-wide(14px);
-  border-left: 4px solid #0079FE;
+@mixin border-left ($size:14px) {
+  @include font-wide($size);
+  border-left: 4px solid $colorA;
   padding-left: 8px;
   margin-bottom: 30px;
   margin-top: 30px;

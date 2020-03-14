@@ -101,11 +101,9 @@ export default {
     padding-left: 20px;
     i,
     span{
-      @include font-wide;
+      @include font-wide(14px);
       text-align: left;
       line-height: 60px;
-    }
-    span {
       margin-left: 3px;
     }
   }
