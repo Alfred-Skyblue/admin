@@ -73,6 +73,13 @@ export default {
         this.$store.commit('setCrumbs', item)
       }
 
+      // 添加头部导航链接
+      if (item.children) {
+        this.$store.commit('addNavTopTitle', item.children)
+      } else {
+        this.$store.commit('delNavTopTitle')
+      }
+
       if (path !== this.$route.path) { // 防止重复点击当前页面的报错
         this.$router.push(path)
       }

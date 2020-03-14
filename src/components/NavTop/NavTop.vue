@@ -2,6 +2,11 @@
   <div class="my-header-top">
     <header>
       <i :class="topTitle.icon"></i><span>{{ topTitle.title }}</span>
+      <a href="javascript:;"
+      v-for="item of $store.state.BusinessList"
+      :key="item.id"
+      @click="handleNavClick(item.path)"
+      >{{item.childTitle}}</a>
     </header>
     <el-breadcrumb separator-class="el-icon-arrow-right" class="my-breadcrumb">
       <el-breadcrumb-item :to="{ path: '/' }" @click.native="handleCrumbs()">首页</el-breadcrumb-item>
@@ -37,12 +42,18 @@ export default {
   methods: {
     handleCrumbs (index) {
       this.$store.commit('setNavTopCrumbs', index)
+    },
+    handleNavClick (path) {
+      if (path !== this.$route.path) { // 防止重复点击当前页面的报错
+        this.$router.push(path)
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/scss/mixin.scss';
 .my-header-top{
 header {
   height: 60px;
@@ -51,7 +62,22 @@ header {
   padding-left: 20px;
   color: #999;
   span {
-    margin-left: 5px;
+    margin: 0 60px 0 5px;
+    @include font-thin(16px,#999)
+  }
+  i{
+    @include font-wide(16px,#999)
+  }
+  a{
+    display: inline-block;
+    @include font-thin;
+    width: 100px;
+    height: 58px;
+    text-align: center;
+    &:hover{
+      border-bottom: 2px solid $colorA;
+      color: $colorA;
+    }
   }
 }
 .my-breadcrumb{
