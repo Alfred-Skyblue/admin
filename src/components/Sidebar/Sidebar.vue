@@ -1,42 +1,36 @@
 <template>
   <div class="sidebar">
-    <div class="sidebar-left" ref="sidebarLeft">
+    <div class="sidebar-left"
+         ref="sidebarLeft">
       <i class="el-icon-s-tools my-icon-tools"></i>
       <h2>系统管理中心</h2>
       <!-- NavMenu 导航菜单 -->
       <el-row class="tac">
         <el-col :span="24">
-          <el-menu
-            default-active="1-1"
-            background-color="rgba(236, 239, 244, 1)"
-            text-color="#666"
-            active-text-color="blue"
-            mode="vertical"
-            unique-opened
-            :collapse="false"
-            :collapse-transition="false"
-            class="el-menu-vertical-demo"
-          >
-            <el-submenu
-              class="my-submenu"
-              v-for="(item, index) in navInfo"
-              :key="item.id"
-              :index="item.id.toString()"
-              @click.native.stop="handleNavClick(item, item.path)"
-            >
+          <el-menu default-active="1-1"
+                   background-color="rgba(236, 239, 244, 1)"
+                   text-color="#666"
+                   active-text-color="blue"
+                   mode="vertical"
+                   unique-opened
+                   :collapse="false"
+                   :collapse-transition="false"
+                   class="el-menu-vertical-demo">
+            <el-submenu class="my-submenu"
+                        v-for="(item, index) in navInfo"
+                        :key="item.id"
+                        :index="item.id.toString()"
+                        @click.native.stop="handleNavClick(item, item.path)">
               <template slot="title">
                 <div class="my-el-item">
                   <i :class="item.icon"></i>
                   <span>{{ item.title }}</span>
                 </div>
               </template>
-              <el-menu-item
-                :index="index + '-' + j"
-                v-for="(children, j) in item.children"
-                :key="children.id"
-                @click.native.stop="handleNavClick(children, children.path)"
-                >{{ children.childTitle }}</el-menu-item
-              >
+              <el-menu-item :index="index + '-' + j"
+                            v-for="(children, j) in item.children"
+                            :key="children.id"
+                            @click.native.stop="handleNavClick(children, children.path)">{{ children.childTitle }}</el-menu-item>
             </el-submenu>
           </el-menu>
         </el-col>
@@ -73,7 +67,8 @@ export default {
         this.$store.commit('setCrumbs', item)
       }
 
-      if (path !== this.$route.path) { // 防止重复点击当前页面的报错
+      if (path !== this.$route.path) {
+        // 防止重复点击当前页面的报错
         this.$router.push(path)
       }
     }
@@ -85,16 +80,15 @@ export default {
 <style lang="scss">
 @import "../../assets/scss/base.scss";
 #app {
+  padding: 100px 0 0 16.666666%;
   height: 100%;
   & > div {
     height: 100%;
   }
 }
 .sidebar {
-  height: 100%;
   .sidebar-left {
     height: 100%;
-    position: relative;
     padding-top: 30px;
     color: #666;
     text-align: center;

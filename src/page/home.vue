@@ -1,14 +1,18 @@
 <template>
   <div>
-    <el-row type="flex" class="my-el-row">
-      <el-col :span="4" class="sidebar-left"
-        ><div class=" grid-content bg-purple">
-          <sidebar :navInfo="navInfo"></sidebar></div
-      ></el-col>
-      <el-col :span="20"
-        ><div class="grid-content bg-purple-light">
+    <el-row type="flex"
+            class="my-el-row">
+      <el-col :span="4"
+              class="sidebar-left">
+        <div class=" grid-content bg-purple">
+          <sidebar :navInfo="navInfo"></sidebar>
+        </div>
+      </el-col>
+      <el-col :span="24">
+        <div class="grid-content bg-purple-light">
           <nav-top :navInfo="navInfo"></nav-top>
-        <router-view></router-view></div>
+          <router-view></router-view>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -120,7 +124,6 @@ export default {
           title: '字典管理',
           icon: 'el-icon-collection',
           path: '/dictionaries'
-
         },
         {
           id: 12,
@@ -140,12 +143,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.my-el-row{
+.my-el-row {
   height: 100vh;
   .sidebar-left {
-  background-color: rgba(236, 239, 244, 1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    min-width: 220px;
+    height: 100%;
+    background-color: rgba(236, 239, 244, 1);
+  }
 }
-}
-
 </style>
