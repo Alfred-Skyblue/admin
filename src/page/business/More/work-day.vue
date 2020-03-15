@@ -90,12 +90,7 @@ export default {
 @import '../../../assets/scss/base.scss';
 .work-day{
   main{
-    box-sizing: border-box;
-    width: 1260px;
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid #E9E9E9;
-
+    @include business-more-main;
     .main-content{
       .left-info{
         margin: -1px 0 0 20px;

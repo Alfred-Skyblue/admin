@@ -86,11 +86,7 @@ export default {
 @import '../../../assets/scss/mixin.scss';
 .safe{
   main{
-    box-sizing: border-box;
-    width: 1260px;
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid #E9E9E9;
+    @include business-more-main;
     .main-header{
       p{
         @include font-wide(14px);
