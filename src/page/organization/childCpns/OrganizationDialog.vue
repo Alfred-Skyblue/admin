@@ -90,7 +90,6 @@ export default {
       }
     },
     deepClone (obj = {}) {
-      debugger
       if (typeof obj !== 'object' || obj == null) {
         return obj
       }
