@@ -1,3 +1,4 @@
+// 模块管理页面数据
 import ApiPath from '@/api/ApiPath'
 const Mock = require('mockjs')
 

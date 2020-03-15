@@ -1,3 +1,5 @@
+// 系统公告页面数据
+
 import ApiPath from '@/api/ApiPath'
 const Mock = require('mockjs')
 

@@ -46,7 +46,6 @@ export default {
     async getSystemTableData () {
       const data = await this.$http.get(ApiPath.system.getSystemTableData)
       this.tableData = data
-      console.log(data)
     },
     handlefilter (henderInfo, time, staff) {
       // 通过数组的 filter 方法实现筛选功能
@@ -67,10 +66,11 @@ export default {
     },
     // 添加公告
     addaddTableData (item) {
-      item.date = this.getNowFormatDate()
-      item.view = this.random(1, 800)
-      item.id = this.tableData.length + 1
-      this.tableData.unshift(item)
+      const formItem = item
+      formItem.date = this.getNowFormatDate()
+      formItem.view = this.random(1, 800)
+      formItem.id = this.tableData.length + 1
+      this.tableData.unshift(formItem)
     },
     // 获取当前日期
     getNowFormatDate () {

@@ -2,8 +2,9 @@
   <div class="dashboard">
     <div class="content ">
       <div class="clearfix">
-        <login-info :username='username' :lasttime="lasttime"></login-info>
-          <num :nums="nums"></num>
+        <login-info :username='username'
+                    :lasttime="lasttime"></login-info>
+        <num :nums="nums"></num>
       </div>
       <module :modules="modules"></module>
       <notice :notices="notices"></notice>
@@ -55,8 +56,13 @@ export default {
       this.modules = res
     },
     async getLoginInfo () {
-      const res = await this.$http.get(ApiPath.center.loginInfo)
-      console.log(res)
+      try {
+        const res = await this.$http.get(ApiPath.center.loginInfo)
+        console.log(res)
+      } catch (e) {
+        // TODO: 数据未定义，接口配置完删除try catch即可
+        console.log(e + '====>接口暂时未定义，接口配置完删除try catch即可')
+      }
     }
   }
 }
@@ -66,13 +72,13 @@ export default {
 @import "assets/scss/base.scss";
 .dashboard {
   padding: 30px 100px;
-  background:var(--color-background-main);
-  margin-top:5px;
+  background: var(--color-background-main);
+  margin-top: 5px;
   height: 100vh;
   .content {
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
     background: #fff;
-    padding:50px;
+    padding: 50px;
   }
 }
 </style>

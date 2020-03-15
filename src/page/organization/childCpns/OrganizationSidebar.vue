@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row class="my-organ-sidebar-content">
-      <el-col :span="4"
+      <el-col :span="24"
               class="my-organ-sidebar">
         <el-menu default-active="2"
                  class="el-menu-vertical-demo"
@@ -31,6 +31,7 @@
 
 <script>
 export default {
+  name: 'OrganizationSidebar',
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath)
@@ -44,10 +45,10 @@ export default {
 
 <style lang="scss" scoped>
 .my-organ-sidebar {
-  overflow: hidden;
-  height: 100vh;
   .el-menu-vertical-demo {
-    height: 100%;
+    overflow: hidden;
+    height: 1150px;
+    border: 1px solid #ccc;
   }
 }
 </style>

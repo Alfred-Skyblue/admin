@@ -1,18 +1,17 @@
 <template>
   <div>
-
-    <div class="system-main">
+    <div class="my-organization-main">
       <header>
         <el-button type="primary"
                    icon="el-icon-plus"
                    size="small"
-                   @click="handleIssue">发布公告</el-button>
-        <el-button icon="el-icon-menu"
-                   size="small"
-                   @click="handleClassify">分类管理</el-button>
+                   @click="addSection">新增部门</el-button>
+        <el-link icon="el-icon-question"
+                 class="my-organization-main-help"
+                 @click="$message.error('功能正在研发中')">帮助提示</el-link>
       </header>
       <!-- 表格 -->
-      <div class="system-main-teble">
+      <div class="my-organization-main-teble">
         <el-table border
                   ref="multipleTable"
                   :data="
@@ -25,28 +24,29 @@
                   style="width: 100%"
                   :header-cell-style="{ background: '#f6f6f6' }"
                   :row-class-name="tableRowClassName">
-          <el-table-column type="selection"> </el-table-column>
-          <el-table-column prop="title"
-                           min-width=130
-                           label="公告标题"> </el-table-column>
+          <el-table-column min-width=100
+                           prop="department"
+                           label="部门名称"> </el-table-column>
+          <el-table-column label="成员数量"
+                           prop="memberNum"> </el-table-column>
           <el-table-column prop="name"
-                           label="发布人员"> </el-table-column>
-          <el-table-column label="发布时间"
-                           min-width=100
-                           prop="date"> </el-table-column>
-          <el-table-column prop="column"
-                           min-width=100
-                           label="所属栏目"> </el-table-column>
-          <el-table-column prop="take"
-                           label="接受人员"> </el-table-column>
-          <el-table-column prop="view"
-                           label="浏览人数"> </el-table-column>
+                           label="负责人员"> </el-table-column>
+
+          <el-table-column min-width=150
+                           prop="departmentInfo"
+                           label="部门描述"> </el-table-column>
+          <el-table-column label="启用">
+            <template scope="scope">
+              <el-switch v-model="scope.row.switch">
+              </el-switch>
+            </template>
+          </el-table-column>
+          <el-table-column prop="date"
+                           label="更新时间"> </el-table-column>
           <el-table-column label="操作"
-                           min-width=100
-                           prop="id">
+                           min-width=100>
             <template slot-scope="scope">
-              <a href="javascript:;"
-                 @click="handleParticulars"><span class="el-icon-info"></span>详情</a>
+              <a href="javascript:;" @click="$message.error('功能正在研发中')"><span class="el-icon-info"></span>详情</a>
               <a href="javascript:;"
                  @click="deleteTableData(scope.row.id)"><span class="el-icon-delete-solid"></span>删除</a>
             </template>
@@ -54,10 +54,7 @@
         </el-table>
         <div style="margin-top: 20px"
              class="clearfix">
-          <div class="fl">
-            <el-button @click="toggleSelection(tableData)">全选</el-button>
-            <el-button @click="toggleSelection()">取消</el-button>
-          </div>
+
           <div class="fr">
             <Pagination :totalNum="tableData.length"
                         :currentPage="currentPage"
@@ -75,7 +72,7 @@
 <script>
 import Pagination from '../../../components/Pagination/Pagination'
 export default {
-  name: 'StstemMain',
+  name: 'OrganizationMain',
   props: {
     tableData: {
       type: Array,
@@ -87,7 +84,7 @@ export default {
   data () {
     return {
       currentPage: 1, // 默认显示第一页
-      pageSize: 10 // 默认每页显示10条
+      pageSize: 20 // 默认每页显示10条
     }
   },
 
@@ -119,21 +116,10 @@ export default {
     },
 
     deleteTableData (id) {
-      this.tableData = this.tableData.filter(item => item.id !== id)
+      this.$emit('deleteTableData', id)
     },
-    handleIssue () {
-      this.$emit('dialogFormChange', true)
-    },
-    handlefilter () {
-      this.$emit('handlefilter')
-    },
-    handleClassify () {
-      this.$message.error('功能正在研发中')
-    },
-    handleParticulars () {
-      console.log(1)
-
-      this.$message.error('功能正在研发中')
+    addSection () {
+      this.$emit('dialogSectionChange', true)
     }
   },
   components: {
@@ -143,12 +129,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.system-main {
+.my-organization-main {
+  height: 1150px;
+  box-sizing: border-box;
   background-color: #fff;
   padding: 20px;
   border: 1px solid #ccc;
   header {
     margin-bottom: 15px;
+    .my-organization-main-help {
+      margin-left: 10px;
+    }
   }
   /deep/.my-el-row {
     background-color: #f6f6f6;
