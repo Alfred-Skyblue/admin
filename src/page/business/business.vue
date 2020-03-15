@@ -6,7 +6,7 @@
     </header>
     <main>
       <div class="main-header">
-        <p class="header">短信限额配置</p>
+        <p class="header">公海规则设置</p>
         <div class="info">
             <p>超过N天"未跟进"的客户，由系统定时划入公海 </p><br />
           说明：从开启公海或获得客户（新增、转移、从公海抢到客户）开始，对客户和客户的商机、
@@ -254,14 +254,7 @@ export default {
 @import '../../assets/scss/mixin.scss';
 .business{
   header{
-    box-sizing: border-box;
-    margin-top: 20px;
-    width: 1260px;
-    height: 60px;
-    background-color: #fff;
-    border: 1px solid #E9E9E9;
-    border-bottom: none;
-    padding-left: 20px;
+    @include business-header;
     i,
     span{
       @include font-wide(14px);
@@ -271,11 +264,7 @@ export default {
     }
   }
   main{
-    box-sizing: border-box;
-    width: 1260px;
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid #E9E9E9;
+    @include business-more-main;
     .main-header{
       margin-bottom: 30px;
       .header{

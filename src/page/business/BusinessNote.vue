@@ -10,25 +10,24 @@
         <span class="title">限制每个员工每月发送短信的额度</span>
       </div>
       <div class="choose">
-        <el-radio v-model="radio" label="1">不启动</el-radio>
-        <el-radio v-model="radio" label="2">启动</el-radio>
+        <el-radio v-model="radio" label=1>启动</el-radio>
+        <el-radio v-model="radio" label=0>不启动</el-radio>
       </div>
       <div class="main-rule">
-        <transition-group appear tag="div">
           <el-row :gutter="20" class="content" >
             <el-col :span="8"><div class="grid-content bg-purple left">
             全员每月默认配额 ：
-            <el-input v-model="input" placeholder="500" class="content-input"></el-input>条
+            <el-input v-model="input" :disabled="flag" placeholder="500" class="content-input"></el-input>条
             </div></el-col>
-            <el-col :span="16"><div class="grid-content bg-purple right">此规则针对：所有员工（特殊员工和超级管理员除外）</div></el-col>
+            <el-col :span="16"><div class="grid-content bg-purple right" v-if="!flag">此规则针对：所有员工（特殊员工和超级管理员除外）</div></el-col>
           </el-row>
           <el-row :gutter="20" class="content" v-for="(item, index) of List" :key="item.id">
             <el-col :span="8"><div class="grid-content bg-purple left">
-            全员每月默认配额 ：{{item.id}}
-            <el-input v-model="input" placeholder="1000" class="content-input"></el-input>条
+            全员每月默认配额 ：
+            <el-input v-model="item.input" :disabled="flag" placeholder="1000" class="content-input"></el-input>条
             </div>
             </el-col>
-            <el-col :span="16"><div class="grid-content bg-purple right">此规则针对：
+            <el-col :span="16"><div class="grid-content bg-purple right" v-if="!flag">此规则针对：
               <div class="name-list">
                 <span class="staff-name" v-for="(item1 ,index1) of item.nameList" :key="index1">
                 {{item1}}
@@ -39,7 +38,6 @@
               </div>
             </el-col>
           </el-row>
-        </transition-group>
       </div>
     </main>
     <business-footer></business-footer>
@@ -55,9 +53,11 @@ export default {
       input: '',
       sum: '李小红',
       radio: '1',
+      flag: false,
       List: [
         {
           id: 0,
+          input: '',
           nameList: [
             '赵小刚',
             '李小明',
@@ -66,6 +66,7 @@ export default {
         },
         {
           id: 1,
+          input: '',
           nameList: [
             '赵小刚',
             '李小明'
@@ -73,6 +74,7 @@ export default {
         },
         {
           id: 2,
+          input: '',
           nameList: [
             '赵小刚',
             '李小明'
@@ -80,6 +82,7 @@ export default {
         },
         {
           id: 3,
+          input: '',
           nameList: [
             '赵小刚',
             '李小明'
@@ -87,6 +90,7 @@ export default {
         },
         {
           id: 4,
+          input: '',
           nameList: [
             '赵小刚',
             '李小明'
@@ -94,6 +98,7 @@ export default {
         },
         {
           id: 5,
+          input: '',
           nameList: [
             '赵小刚',
             '李小明'
@@ -101,6 +106,7 @@ export default {
         },
         {
           id: 6,
+          input: '',
           nameList: [
             '赵小刚',
             '李小明'
@@ -108,12 +114,14 @@ export default {
         },
         {
           id: 7,
+          input: '',
           nameList: [
             '赵小刚',
             '李小明'
           ]
         }
-      ]
+      ],
+      nameList: []
     }
   },
   props: {
@@ -124,7 +132,7 @@ export default {
   },
   methods: {
     addClick (index) {
-      const sum = this.sum
+      const sum = this.nameList
       this.List[index].nameList.push(sum)
     },
     delClick (index, index1) {
@@ -133,6 +141,20 @@ export default {
     delNameList (index) {
       this.List.splice(index, 1)
     }
+  },
+  mounted () {
+  },
+  watch: {
+    radio: {
+      handler (newVal) {
+        console.log(this.radio)
+        if (newVal === '0') {
+          this.flag = true
+        } else {
+          this.flag = false
+        }
+      }
+    }
   }
 }
 </script>
@@ -140,19 +162,8 @@ export default {
 <style lang="scss">
 @import '../../assets/scss/mixin.scss';
 .business-note{
-  width: 1260px;
-  background-color: #FCFCFC;
-  margin-left: auto;
-  margin-right: auto;
   header{
-    box-sizing: border-box;
-    margin-top: 20px;
-    width: 1260px;
-    height: 60px;
-    background-color: #fff;
-    border: 1px solid #E9E9E9;
-    border-bottom: none;
-    padding-left: 20px;
+    @include business-header;
     i,
     span{
       @include font-wide(14px);
@@ -162,11 +173,8 @@ export default {
     }
   }
     main{
-    box-sizing: border-box;
-    width: 1260px;
-    background-color: #fff;
+    @include business-more-main;
     padding: 30px 0 30px 50px;
-    border: 1px solid #E9E9E9;
     .main-header{
       line-height: 1;
       p {

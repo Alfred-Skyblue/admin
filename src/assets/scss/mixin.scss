@@ -1,3 +1,4 @@
+// 以下为business常用样式
 @mixin font-wide($size:16px,$weight:700,$color:#666666){
   font-family: "微软雅黑 Bold", "微软雅黑 Regular", '微软雅黑', sans-serif;
   font-weight: $weight;
@@ -74,6 +75,26 @@
     }
   }
 }
+
+@mixin business-header ($height:60px) {
+  box-sizing: border-box;
+  margin-top: 20px;
+  width: 1260px;
+  height: $height;
+  background-color: #fff;
+  border: 1px solid #E9E9E9;
+  border-bottom: none;
+  padding-left: 20px;
+}
+
+@mixin business-more-main () {
+  box-sizing: border-box;
+  width: 1260px;
+  background-color: #fff;
+  padding: 30px;
+  border: 1px solid #E9E9E9;
+}
+
 
 $colorA: #0079FE !default; //常用颜色
 
