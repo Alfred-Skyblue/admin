@@ -86,7 +86,7 @@ export default {
 <style lang="scss">
 @import "../../assets/scss/base.scss";
 #app {
-  padding: 100px 0 0 16.666666%;
+  padding: 110px 0 0 16.666666%;
   height: 100%;
   & > div {
     height: 100%;
