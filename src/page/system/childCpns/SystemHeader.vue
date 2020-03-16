@@ -37,11 +37,11 @@
                         :xl="4">
                   <div class="grid-content bg-purple">
                     <el-select v-model="value"
-                               placeholder="选择栏目">
+                              placeholder="选择栏目">
                       <el-option v-for="item in options"
-                                 :key="item.value"
-                                 :label="item.label"
-                                 :value="item.value">
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
                       </el-option>
                     </el-select>
                   </div>
@@ -69,8 +69,8 @@
                     <div class="grid-content my-header-button">
                       <el-button type="primary" @click="handleSystemSearch"><span class="el-icon-search"></span>搜索</el-button>
                       <el-button type="info"
-                                 plain
-                                 @click="handleReset">重置</el-button>
+                                plain
+                                @click="handleReset">重置</el-button>
                     </div>
                   </div>
                 </el-col>

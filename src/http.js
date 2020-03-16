@@ -1,5 +1,6 @@
-import axios from 'axios'
 import Vue from 'vue'
+import axios from 'axios'
+
 const http = axios.create({
   baseURL: 'http://axure-admin.cn',
   timeout: 8000
