@@ -3,13 +3,13 @@
     <!-- Form -->
 
     <el-dialog title="发布公告"
-               :visible.sync="dialogFormVisible"
-               :close-on-click-modal="false"
-               :show-close="false"
-               :close-on-press-escape="false"
-               @closed="handleclosed()">
+              :visible.sync="dialogFormVisible"
+              :close-on-click-modal="false"
+              :show-close="false"
+              :close-on-press-escape="false"
+              @closed="handleclosed()">
       <el-form :model="form"
-               ref="dialogSection">
+              ref="dialogSection">
         <el-form-item label="公告标题"
                       :label-width="formLabelWidth">
           <el-input v-model="form.title"
@@ -32,10 +32,10 @@
         </el-form-item>
       </el-form>
       <div slot="footer"
-           class="dialog-footer">
+          class="dialog-footer">
         <el-button @click="dialogFormChange">取 消</el-button>
         <el-button type="primary"
-                   @click="addTableData">确 定</el-button>
+                  @click="addTableData">确 定</el-button>
       </div>
     </el-dialog>
   </div>

@@ -3,11 +3,11 @@
     <system-content>
       <system-header @filter="handlefilter"></system-header>
       <system-main @dialogFormChange="dialogFormChange"
-                   :tableData="tableData"
-                   @handlefilter="handlefilter"></system-main>
+                  :tableData="tableData"
+                  @handlefilter="handlefilter"></system-main>
       <system-dialog :dialogFormVisible="dialogFormVisible"
-                     @dialogFormChange="dialogFormChange"
-                     @addaddTableData="addaddTableData"></system-dialog>
+                    @dialogFormChange="dialogFormChange"
+                    @addaddTableData="addaddTableData"></system-dialog>
     </system-content>
 
   </div>
