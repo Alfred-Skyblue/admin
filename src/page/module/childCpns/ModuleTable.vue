@@ -14,7 +14,7 @@
         </template>
       </el-table-column>
       <el-table-column label="操作">
-        <a href="javascript:;"><span class="el-icon-edit-outline"></span>编辑</a>
+        <a href="javascript:;" @click="$message.error('功能正在研发中')"><span class="el-icon-edit-outline"></span>编辑</a>
       </el-table-column>
     </el-table>
   </div>

@@ -9,19 +9,36 @@ export default {
   // 设置面包屑
   setCrumbs (state, crumbs) {
     // 默认菜单级别为0
-    let length = 0
+
     if (crumbs.children) {
       // 有子菜单走这里
       if (crumbs.childTitle) {
         state.crumbs.push(crumbs)
       } else {
-        state.crumbs = []
+        state.crumbs.length = 0
         state.crumbs.push(crumbs)
       }
-      length++
     } else {
       // 没有子菜单走这里
-      state.crumbs[length + 1] = crumbs
+      state.crumbs[1] = crumbs
     }
+  },
+  // 面包屑点击处理
+  setNavTopCrumbs (state, index) {
+    if (index !== undefined) {
+      // 如果有index，则根据index切割crumbs
+      state.crumbs = state.crumbs.splice(0, index + 1)
+    } else {
+      // 点击首页，不传入index，清空数组
+      state.crumbs = []
+    }
+  },
+  // 头部导航内容复制
+  addNavTopTitle (state, BusinessList) {
+    state.BusinessList = BusinessList
+  },
+  // 如果没有则清空
+  delNavTopTitle (state) {
+    state.BusinessList = []
   }
 }

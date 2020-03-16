@@ -62,19 +62,8 @@ export default {
 <style lang="scss">
 @import '../../assets/scss/mixin.scss';
 .business-approval{
-  width: 1260px;
-  background-color: #FCFCFC;
-  margin-left: auto;
-  margin-right: auto;
   header{
-    box-sizing: border-box;
-    margin-top: 20px;
-    width: 1260px;
-    height: 80px;
-    background-color: #fff;
-    border: 1px solid #E9E9E9;
-    border-bottom: none;
-    padding-left: 20px;
+    @include business-header(80px);
     a{
       @include font-wide(14px);
       text-align: left;

@@ -25,6 +25,8 @@
                         :lg="4"
                         :xl="4">
                   <el-date-picker type="date"
+                  v-model="time"
+                  value-format="yyyy-MM-dd"
                                   placeholder="发布时间">
                   </el-date-picker>
                 </el-col>
@@ -35,11 +37,11 @@
                         :xl="4">
                   <div class="grid-content bg-purple">
                     <el-select v-model="value"
-                               placeholder="选择栏目">
+                              placeholder="选择栏目">
                       <el-option v-for="item in options"
-                                 :key="item.value"
-                                 :label="item.label"
-                                 :value="item.value">
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
                       </el-option>
                     </el-select>
                   </div>
@@ -52,7 +54,7 @@
                   <div class="grid-content bg-purple">
                     <el-input placeholder="发布人员"
                               suffix-icon="el-icon-user-solid"
-                              v-model="column"
+                              v-model="staff"
                               :style="style">
                     </el-input>
                   </div>
@@ -65,9 +67,10 @@
                         :xl="8">
                   <div class="grid-content">
                     <div class="grid-content my-header-button">
-                      <el-button type="primary"><span class="el-icon-search"></span>搜索</el-button>
+                      <el-button type="primary" @click="handleSystemSearch"><span class="el-icon-search"></span>搜索</el-button>
                       <el-button type="info"
-                                 plain>重置</el-button>
+                                plain
+                                @click="handleReset">重置</el-button>
                     </div>
                   </div>
                 </el-col>
@@ -87,7 +90,7 @@ export default {
     return {
       henderInfo: '',
       time: '',
-      column: '',
+      staff: '',
       style: {
         minWidth: '110px',
         marginRight: '5px'
@@ -106,6 +109,14 @@ export default {
         label: '游泳'
       }],
       value: ''
+    }
+  },
+  methods: {
+    handleSystemSearch () { // 搜索逻辑
+      this.$emit('filter', this.henderInfo, this.time, this.staff)
+    },
+    handleReset () { // 重置逻辑
+      this.henderInfo = this.time = this.staff = ''
     }
   }
 }
@@ -130,8 +141,9 @@ export default {
       text-align: center;
     }
   }
-  .el-input__inner {
+  /deep/ .el-input__inner {
     min-width: 120px !important;
+    padding-right: 0 !important;
   }
   /deep/ .el-date-editor.el-input {
     width: 100%;

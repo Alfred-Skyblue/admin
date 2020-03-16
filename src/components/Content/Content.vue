@@ -19,7 +19,7 @@ export default {
     styleContent: {
       type: Object,
       default () {
-        return {}
+        return { }
       }
     }
   }

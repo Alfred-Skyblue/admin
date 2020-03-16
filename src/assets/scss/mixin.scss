@@ -1,3 +1,4 @@
+// 以下为business常用样式
 @mixin font-wide($size:16px,$weight:700,$color:#666666){
   font-family: "微软雅黑 Bold", "微软雅黑 Regular", '微软雅黑', sans-serif;
   font-weight: $weight;
@@ -14,9 +15,9 @@
   font-style:normal
 }
 
-@mixin border-left () {
-  @include font-wide(14px);
-  border-left: 4px solid #0079FE;
+@mixin border-left ($size:14px) {
+  @include font-wide($size);
+  border-left: 4px solid $colorA;
   padding-left: 8px;
   margin-bottom: 30px;
   margin-top: 30px;
@@ -75,4 +76,45 @@
   }
 }
 
+@mixin business-header ($height:60px) {
+  box-sizing: border-box;
+  margin-top: 20px;
+  width: 1260px;
+  height: $height;
+  background-color: #fff;
+  border: 1px solid #E9E9E9;
+  border-bottom: none;
+  padding-left: 20px;
+}
+
+@mixin business-more-main () {
+  box-sizing: border-box;
+  width: 1260px;
+  background-color: #fff;
+  padding: 30px;
+  border: 1px solid #E9E9E9;
+}
+
+
 $colorA: #0079FE !default; //常用颜色
+
+
+.v-enter,
+.v-leave-to {
+    opacity: 0;
+    transform: translateY(80px);
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: all 0.6s ease;
+}
+
+/* 下面的 .v-move 和 .v-leave-active 配合使用，能够实现列表后续的元素，渐渐地漂上来的效果 */
+.v-move {
+    transition: all 0.6s ease;
+}
+
+.v-leave-active {
+    position: absolute;
+}

@@ -1,14 +1,18 @@
 <template>
   <div>
-    <el-row type="flex" class="my-el-row">
-      <el-col :span="4" class="sidebar-left"
-        ><div class=" grid-content bg-purple">
-          <sidebar :navInfo="navInfo"></sidebar></div
-      ></el-col>
-      <el-col :span="20"
-        ><div class="grid-content bg-purple-light">
+    <el-row type="flex"
+            class="my-el-row">
+      <el-col :span="4"
+              class="sidebar-left">
+        <div class=" grid-content bg-purple">
+          <sidebar :navInfo="navInfo"></sidebar>
+        </div>
+      </el-col>
+      <el-col :span="24">
+        <div class="grid-content bg-purple-light">
           <nav-top :navInfo="navInfo"></nav-top>
-        <router-view></router-view></div>
+          <router-view class="my-home-content"></router-view>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -21,54 +25,62 @@ export default {
   data () {
     return {
       navInfo: [
+        // TODO:没有子菜单的暂时将 children 默认为空数组
         {
           id: 1,
           title: '管理中心',
           icon: 'el-icon-setting',
-          path: '/admin'
+          path: '/admin',
+          children: []
         },
         {
           id: 2,
           title: '系统公告',
           icon: 'el-icon-office-building',
           path: '/system',
-          children: [{ childTitle: '系统公告', id: '01' }]
+          children: [{ childTitle: '系统公告', id: 10, path: '/system' }]
         },
         {
           id: 3,
           title: '企业设置',
           icon: 'el-icon-office-building',
-          path: '/enterprise'
+          path: '/enterprise',
+          children: []
         },
         {
           id: 4,
           title: '组织架构',
           icon: 'el-icon-s-management',
-          path: '/organization'
+          path: '/organization',
+          children: []
         },
         {
           id: 5,
           title: '职务权限',
           icon: 'el-icon-s-check',
-          path: '/duty'
+          path: '/duty',
+          children: []
         },
         {
           id: 6,
           title: '员工管理',
           icon: 'el-icon-s-custom',
-          path: '/staff'
+          path: '/staff',
+          children: []
         },
         {
           id: 7,
           title: '模块管理',
           icon: 'el-icon-s-grid',
-          path: '/module'
+          path: '/module',
+          children: []
         },
         {
           id: 8,
           title: '产品管理',
           icon: 'el-icon-box',
-          path: '/admin'
+          path: '/admin',
+          children: []
         },
         {
           id: 9,
@@ -112,20 +124,22 @@ export default {
           id: 10,
           title: '字段设置',
           icon: 'el-icon-document',
-          path: '/field'
+          path: '/field',
+          children: []
         },
         {
           id: 11,
           title: '字典管理',
           icon: 'el-icon-collection',
-          path: '/dictionaries'
-
+          path: '/dictionaries',
+          children: []
         },
         {
           id: 12,
           title: '日志管理',
           icon: 'el-icon-notebook-1',
-          path: '/log'
+          path: '/log',
+          children: []
         }
       ]
     }
@@ -139,11 +153,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+<<<<<<< HEAD
 .my-el-row{
+=======
+.my-el-row {
+>>>>>>> 460442a07b392b4d2788874d4a9a6bba1c2a4e24
   height: 100vh;
   .sidebar-left {
-  background-color: rgba(236, 239, 244, 1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    min-width: 220px;
+    height: 100%;
+    background-color: rgba(236, 239, 244, 1);
+  }
+  .my-home-content {
+    margin-left: 20px;
+  }
 }
-}
-
 </style>

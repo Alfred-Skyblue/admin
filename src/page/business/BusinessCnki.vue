@@ -75,35 +75,18 @@ export default {
 <style lang="scss">
 @import '../../assets/scss/mixin.scss';
 .business-cnki{
-  width: 1260px;
-  background-color: #FCFCFC;
-  margin-left: auto;
-  margin-right: auto;
   header{
-    box-sizing: border-box;
-    margin-top: 20px;
-    width: 1260px;
-    height: 60px;
-    background-color: #fff;
-    border: 1px solid #E9E9E9;
-    border-bottom: none;
-    padding-left: 20px;
+  @include business-header;
     i,
     span{
-      @include font-wide;
+      @include font-wide(14px);
       text-align: left;
       line-height: 60px;
-    }
-    span {
       margin-left: 3px;
     }
   }
   main{
-    box-sizing: border-box;
-    width: 1260px;
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid #E9E9E9;
+    @include business-more-main;
     .header-title{
       @include font-thin;
       height: 40px;

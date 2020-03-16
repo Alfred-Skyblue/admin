@@ -7,14 +7,14 @@
     <main>
       <table>
         <thead>
-          <th>提醒</th>
-          <th>提醒</th>
-          <th>提醒</th>
+          <th>提醒类型</th>
+          <th>事件说明</th>
+          <th>提醒方式</th>
         </thead>
         <tbody>
           <tr v-for="item of List" :key="item.id">
-            <td>审批</td>
-            <td>有新的审批时提醒处理人</td>
+            <td>{{item.title}}</td>
+            <td>{{item.info}}</td>
             <td>
               <template>
                 <el-checkbox-group v-model="item.checkList">
@@ -28,7 +28,7 @@
         </tbody>
       </table>
     </main>
-    <business-footer></business-footer>
+    <business-footer @click.native="handelClick"></business-footer>
   </div>
 </template>
 
@@ -38,83 +38,125 @@ export default {
   name: 'BusinessWarn',
   data () {
     return {
-      checkList: [],
       List: [
         {
           id: 0,
+          title: '审批',
+          info: '有新的审批时提醒抄送人',
           checkList: []
         },
         {
           id: 1,
+          title: '审批',
+          info: '审批通过提醒创建人',
           checkList: []
         },
         {
           id: 2,
+          title: '审批',
+          info: '审批拒绝提醒创建人',
           checkList: []
         },
         {
           id: 3,
+          title: '审批',
+          info: '有新的审批时提醒处理人',
           checkList: []
         },
         {
           id: 4,
+          title: '工单',
+          info: '有新的工单时提醒执行人',
           checkList: []
         },
         {
           id: 5,
+          title: '工单',
+          info: '有新的工单时提醒抄送人',
           checkList: []
         },
         {
           id: 6,
+          title: '工单',
+          info: '工单完结时提醒发起人',
           checkList: []
         },
         {
           id: 7,
+          title: '工单',
+          info: '工单退回时提醒被退回人',
+          checkList: []
+        },
+        {
+          id: 8,
+          title: '工作报告',
+          info: '有新的工作报告时提醒批阅人员',
+          checkList: []
+        },
+        {
+          id: 9,
+          title: '工作报告',
+          info: '有新的工作报告时提醒抄送人员',
+          checkList: []
+        },
+        {
+          id: 10,
+          title: '工作报告',
+          info: '有新的报告批阅时提醒提交人员',
+          checkList: []
+        },
+        {
+          id: 11,
+          title: '写新跟进',
+          info: '提交新的跟进时提醒抄送人员',
+          checkList: []
+        },
+        {
+          id: 12,
+          title: '普通任务',
+          info: '有新的任务时提醒负责人员',
+          checkList: []
+        },
+        {
+          id: 13,
+          title: '普通任务',
+          info: '有新的任务时提醒参与人员',
+          checkList: []
+        },
+        {
+          id: 14,
+          title: '跟进任务',
+          info: '有新的任务时提醒抄送人员',
           checkList: []
         }
       ]
     }
   },
-  props: {
-    businessList: Array
-  },
   components: {
     BusinessFooter
+  },
+  methods: {
+    handelClick () {
+      return this.List
+    }
   }
 }
 </script>
 <style lang="scss">
 @import '../../assets/scss/mixin.scss';
 .business-warn{
-  width: 1260px;
-  background-color: #FCFCFC;
-  margin-left: auto;
-  margin-right: auto;
   header{
-    box-sizing: border-box;
-    margin-top: 20px;
-    width: 1260px;
-    height: 60px;
-    background-color: #fff;
-    border: 1px solid #E9E9E9;
-    border-bottom: none;
-    padding-left: 20px;
+    @include business-header;
     i,
     span{
-      @include font-wide;
+      @include font-wide(14px);
       text-align: left;
       line-height: 60px;
-    }
-    span {
       margin-left: 3px;
     }
   }
   main{
-    box-sizing: border-box;
-    width: 1260px;
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid #E9E9E9;
+    @include business-more-main;
     table {
       width: 1182px;
       text-align: left;

@@ -11,10 +11,20 @@ module.exports = {
   notice: {
     getPartNotice: SERVER_HOST + '/notice/getPartNotice'
   },
+  // 系统公告数据
   system: {
     getSystemTableData: SERVER_HOST + '/system/getSystemTableData'
   },
+  // 模块管理数据
   moduleSupport: {
     getModuleTableData: SERVER_HOST + '/moduleSupport/getModuleTableData'
+  },
+  // 组织架构数据
+  organization: {
+    getOrganizationTable: SERVER_HOST + '/organization/getOrganizationTable'
+  },
+  // 业务处理数据
+  business: {
+    getBusinessList: SERVER_HOST + '/business/getBusinessList'
   }
 }

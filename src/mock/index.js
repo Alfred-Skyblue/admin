@@ -2,8 +2,15 @@
 import Mock from 'mockjs'
 require('@/mock/noticemock')
 require('@/mock/centermock')
+
 require('@/mock/system')
 require('@/mock/moduleSupport')
+require('./noticemock')
+require('./centermock')
+require('./system')
+require('./moduleSupport')
+require('./organization')
+require('./business')
 // 设置所有ajax请求的超时时间，模拟网络传输耗时
 Mock.setup({
   timeout: 0 - 300

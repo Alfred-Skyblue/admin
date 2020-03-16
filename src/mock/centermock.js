@@ -6,7 +6,7 @@ Mock.mock(ApiPath.center.statistic, 'get', function (option) {
     data: [
       {
         title: '员工数量',
-        'num|500': 500
+        'num|400': 500
       },
       {
         title: '在线人数',
