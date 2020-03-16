@@ -153,11 +153,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< HEAD
 .my-el-row{
-=======
-.my-el-row {
->>>>>>> 460442a07b392b4d2788874d4a9a6bba1c2a4e24
   height: 100vh;
   .sidebar-left {
     position: fixed;

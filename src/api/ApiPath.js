@@ -26,5 +26,8 @@ module.exports = {
   // 业务处理数据
   business: {
     getBusinessList: SERVER_HOST + '/business/getBusinessList'
+  },
+  enterprise: {
+    setEnterprise: SERVER_HOST + '/enterprise/setEnterprise'
   }
 }
