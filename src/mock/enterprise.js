@@ -1,21 +1,33 @@
 import ApiPath from '@/api/ApiPath'
 const Mock = require('mockjs')
-let listAdd = function(options){
-  //  console.log("传过来的数据"+JSON.parse(options.body).params.obj);
-      let rtype = options.type.toLowerCase(); //获取请求的类型
-      switch (rtype) {
-          case 'get':
-              break;
-          case 'post':
-              let obj = JSON.parse(options.body).params.obj;
-              // console.log("数据获取"+ obj);
-              arr = arr.concat(obj);  // 将前台返回来的数据，拼接到数组中。
-              break;
-          default:
-              break;
-      }
-      return {
-          data: arr
-      }
+let enterprise = {}
+Mock.mock(ApiPath.enterprise.setEnterprise, 'post', function (option) {
+  const param = JSON.parse(option.body)
+  enterprise = {
+    id: Mock.Random.guid(),
+    name: param.name,
+    shortName: param.shortName,
+    call: param.call,
+    type: param.type,
+    industry: param.industry,
+    area: param.area,
+    address: param.address,
+    postcode: param.postcode,
+    fax: param.fax,
+    website: param.website,
+    createdate: param.createdate,
+    contactname: param.contactname,
+    gender: param.gender,
+    job: param.job,
+    phone: param.phone,
+    email: param.email,
+    logo: param.logo
   }
-  Mock.mock(Api.enterprise.addEnterprise,/get|post/i,listAdd);
+  return Mock.mock({
+    data: {
+      data: enterprise
+    },
+    status: 0,
+    msg: '添加成功'
+  })
+})

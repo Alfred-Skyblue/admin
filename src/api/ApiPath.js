@@ -18,6 +18,6 @@ module.exports = {
     getModuleTableData: SERVER_HOST + '/moduleSupport/getModuleTableData'
   },
   enterprise: {
-    addEnterprise: SERVER_HOST + '/enterprise/addEnterprise'
+    setEnterprise: SERVER_HOST + '/enterprise/setEnterprise'
   }
 }

@@ -10,23 +10,23 @@
       </div>
       <div slot="bd" class="content">
         <Title>基本信息</Title>
-        <el-form ref="form" :model="enterprise" label-width="80px">
-          <el-form-item label="企业名称:" class="required">
+        <el-form ref="form" :model="enterprise" :rules="formRules" label-width="80px">
+          <el-form-item label="企业名称:" class="required" prop="name">
             <el-input v-model="enterprise.name"></el-input>
           </el-form-item>
-          <el-form-item label="企业简称:" class="required">
+          <el-form-item label="企业简称:" class="required" prop="shortName">
             <el-input v-model="enterprise.shortName"></el-input>
           </el-form-item>
-          <el-form-item label="企业电话:" class="required">
+          <el-form-item label="企业电话:" class="required" prop="call">
             <el-input v-model="enterprise.call"></el-input>
           </el-form-item>
-          <el-form-item label="企业类型:" class="required">
+          <el-form-item label="企业类型:" class="required" prop="type">
             <el-select v-model="enterprise.type" placeholder="选择企业类型">
               <el-option label="国有企业" value="public"></el-option>
               <el-option label="私有企业" value="private"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="所属行业:" class="required">
+          <el-form-item label="所属行业:" class="required" prop="industry">
             <el-select v-model="enterprise.industry" placeholder="选择行业">
               <el-option label="教育业" value="edu"></el-option>
               <el-option label="互联网" value="Intel"></el-option>
@@ -50,7 +50,7 @@
           <el-form-item label="企业网址:">
             <el-input v-model="enterprise.website"></el-input>
           </el-form-item>
-          <el-form-item label="成立时间">
+          <el-form-item label="成立时间:">
             <el-date-picker
               type="date"
               placeholder="选择日期"
@@ -80,24 +80,24 @@
             </div>
           </el-form-item>
           <Title>企业联系人</Title>
-          <el-form-item label="联系姓名:" class="required">
-            <el-input v-model="enterprise.contact.name"></el-input>
+          <el-form-item label="联系姓名:" class="required" prop="contactname">
+            <el-input v-model="enterprise.contactname"></el-input>
           </el-form-item>
           <el-form-item label="尊称:">
-            <el-radio-group v-model="enterprise.contact.gender">
+            <el-radio-group v-model="enterprise.gender" >
               <el-radio :label="0">未知</el-radio>
               <el-radio :label="1">先生</el-radio>
               <el-radio :label="2">女士</el-radio>
             </el-radio-group>
           </el-form-item>
           <el-form-item label="部门职务:">
-            <el-input v-model="enterprise.contact.job"></el-input>
+            <el-input v-model="enterprise.job"></el-input>
           </el-form-item>
-          <el-form-item label="手机号码:" class="required">
-            <el-input v-model="enterprise.contact.phone"></el-input>
+          <el-form-item label="手机号码:" class="required" prop="phone">
+            <el-input v-model="enterprise.phone"></el-input>
           </el-form-item>
           <el-form-item label="电子邮箱:">
-            <el-input v-model="enterprise.contact.email"></el-input>
+            <el-input v-model="enterprise.email"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="save" icon="el-icon-check">保存</el-button>
@@ -133,33 +133,59 @@ export default {
         fax: '',
         website: '',
         createdate: '',
-        contact: {
-          name: '',
-          gender: 0,
-          job: '',
-          phone: '',
-          email: ''
-        },
-        logo: require('../../assets/img/dec99b9bly1g9cus2xtk8j21k91k9npd.jpg')
+        contactname: '',
+        gender: 0,
+        job: '',
+        phone: '',
+        email: '',
+        logo: require('../../assets/img/default.png')
+      },
+      formRules: {
+        name: [
+          { required: true, message: '请输入企业名称', trigger: 'blur' },
+          { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+        ],
+        shortName: [
+          { required: true, message: '请输入企业简称', trigger: 'blur' }
+        ],
+        call: [
+          { required: true, message: '请输入企业电话', trigger: 'blur' }
+        ],
+        type: [
+          { required: true, message: '请选择企业类型', trigger: 'change' }
+        ],
+        industry: [
+          { required: true, message: '请选择所属行业', trigger: 'change' }
+        ],
+        contactname: [
+          { required: true, message: '请输入姓名', trigger: 'blur' }
+        ],
+        phone: [
+          { required: true, message: '请输入手机号', trigger: 'blur' }
+        ]
       }
     }
   },
   methods: {
     upload (file) {
-      console.log(file.name)
+      console.log(file)
       this.enterprise.logo = require(`../../assets/img/${file.name}`)
     },
     save () {
-      this.$http
-        .post(ApiPath.enterprise.addEnterprise, {
-          params: {
-            obj: this.enterprise
-          }
-        })
-        .then(res => {
-          console.log('请求成功' + res.data.data)
-          this.list = res.data.data
-        })
+      this.$refs.form.validate(async valid => {
+        if (!valid) {
+          this.$message.error('请将必填项填写完整')
+          return
+        }
+        this.$http
+          .post(ApiPath.enterprise.setEnterprise, this.enterprise)
+          .then(res => {
+            if (res) {
+              this.$message.success('设置成功')
+              console.log(res)
+            } else this.$message.error('设置失败')
+          })
+      })
     }
   }
 }

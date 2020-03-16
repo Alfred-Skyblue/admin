@@ -38,7 +38,8 @@ export default {
           id: 3,
           title: '企业设置',
           icon: 'el-icon-office-building',
-          path: '/enterprise'
+          path: '/enterprise',
+          children: []
         },
         {
           id: 4,
