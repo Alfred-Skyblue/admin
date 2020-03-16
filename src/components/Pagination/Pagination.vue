@@ -7,6 +7,7 @@
       :current-page="currentPage"
       layout="prev, pager, next"
       :total="totalNum"
+      :page-size="pageSize"
     ></el-pagination>
   </div>
 </template>

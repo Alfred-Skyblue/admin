@@ -8,48 +8,69 @@
           <div class="system-content">
             <header>
               <el-row :gutter="10">
-                <el-col
-                :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                <el-col :xs="4"
+                        :sm="4"
+                        :md="4"
+                        :lg="4"
+                        :xl="4">
                   <div class="grid-content bg-purple">
                     <el-input v-model="henderInfo"
                               placeholder="请输入内容"
                               :style="style"></el-input>
                   </div>
                 </el-col>
-                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                <el-col :xs="4"
+                        :sm="4"
+                        :md="4"
+                        :lg="4"
+                        :xl="4">
+                  <el-date-picker type="date"
+                  v-model="time"
+                  value-format="yyyy-MM-dd"
+                                  placeholder="发布时间">
+                  </el-date-picker>
+                </el-col>
+                <el-col :xs="4"
+                        :sm="4"
+                        :md="4"
+                        :lg="4"
+                        :xl="4">
                   <div class="grid-content bg-purple">
-                    <el-input placeholder="发布时间"
-                              suffix-icon="el-icon-date"
-                              v-model="time"
-                              :style="style">
-                    </el-input>
+                    <el-select v-model="value"
+                               placeholder="选择栏目">
+                      <el-option v-for="item in options"
+                                 :key="item.value"
+                                 :label="item.label"
+                                 :value="item.value">
+                      </el-option>
+                    </el-select>
                   </div>
                 </el-col>
-                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-                  <div class="grid-content bg-purple">
-                    <el-input placeholder="选择栏目"
-                              suffix-icon="el-icon-arrow-down"
-                              v-model="column"
-                              :style="style">
-                    </el-input>
-                  </div>
-                </el-col>
-                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                <el-col :xs="4"
+                        :sm="4"
+                        :md="4"
+                        :lg="4"
+                        :xl="4">
                   <div class="grid-content bg-purple">
                     <el-input placeholder="发布人员"
                               suffix-icon="el-icon-user-solid"
-                              v-model="column"
+                              v-model="staff"
                               :style="style">
                     </el-input>
                   </div>
                 </el-col>
 
-                <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+                <el-col :xs="8"
+                        :sm="8"
+                        :md="8"
+                        :lg="8"
+                        :xl="8">
                   <div class="grid-content">
                     <div class="grid-content my-header-button">
-                      <el-button type="primary"><span class="el-icon-search"></span>搜索</el-button>
+                      <el-button type="primary" @click="handleSystemSearch"><span class="el-icon-search"></span>搜索</el-button>
                       <el-button type="info"
-                                 plain>重置</el-button>
+                                 plain
+                                 @click="handleReset">重置</el-button>
                     </div>
                   </div>
                 </el-col>
@@ -69,11 +90,33 @@ export default {
     return {
       henderInfo: '',
       time: '',
-      column: '',
+      staff: '',
       style: {
         minWidth: '110px',
         marginRight: '5px'
-      }
+      },
+      options: [{
+        value: '选项1',
+        label: '马拉松'
+      }, {
+        value: '选项2',
+        label: '山地越野'
+      }, {
+        value: '选项3',
+        label: '铁人三项'
+      }, {
+        value: '选项4',
+        label: '游泳'
+      }],
+      value: ''
+    }
+  },
+  methods: {
+    handleSystemSearch () { // 搜索逻辑
+      this.$emit('filter', this.henderInfo, this.time, this.staff)
+    },
+    handleReset () { // 重置逻辑
+      this.henderInfo = this.time = this.staff = ''
     }
   }
 }
@@ -98,8 +141,12 @@ export default {
       text-align: center;
     }
   }
-  .el-input__inner {
+  /deep/ .el-input__inner {
     min-width: 120px !important;
+    padding-right: 0 !important;
+  }
+  /deep/ .el-date-editor.el-input {
+    width: 100%;
   }
 }
 </style>
