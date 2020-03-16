@@ -16,12 +16,11 @@ const routes = [
         name: 'admin',
         component: Admin
       },
-
       // 以下为业务管理start
       {
         path: '/business',
         name: 'business',
-        component: () => import('Page/business.vue')
+        component: () => import('../page/business/business.vue')
       },
       {
         path: '/BusinessWarn',
@@ -62,7 +61,7 @@ const routes = [
       {
         path: '/enterprise',
         name: 'enterprise',
-        component: () => import('Page/enterprise.vue')
+        component: () => import('Page/enterprise/enterprise.vue')
       },
       {
         path: '/field',
@@ -77,7 +76,7 @@ const routes = [
       {
         path: '/module',
         name: 'module',
-        component: () => import('Page/module.vue')
+        component: () => import('Page/module/module.vue')
       },
       {
         path: '/organization',

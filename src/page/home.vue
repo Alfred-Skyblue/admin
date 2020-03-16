@@ -25,8 +25,7 @@ export default {
           id: 1,
           title: '管理中心',
           icon: 'el-icon-setting',
-          path: '/admin',
-          children: [{ childTitle: '中心首页', id: 1 }]
+          path: '/admin'
         },
         {
           id: 2,
@@ -39,8 +38,7 @@ export default {
           id: 3,
           title: '企业设置',
           icon: 'el-icon-office-building',
-          path: '/enterprise',
-          children: [{ childTitle: '企业注册', id: 1 }]
+          path: '/enterprise'
         },
         {
           id: 4,

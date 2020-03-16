@@ -32,14 +32,10 @@
           <af-table-column prop="take" label="接受人员"> </af-table-column>
           <af-table-column prop="view" label="浏览人数"> </af-table-column>
           <af-table-column label="操作">
-            <template slot-scope="scope">
+            <template>
+              <a href="javascript:;"><span class="el-icon-info"></span>详情</a>
               <a href="javascript:;"
-                ><span class="el-icon-info"></span
-                >{{ scope.row.operation.details }}</a
-              >
-              <a href="javascript:;"
-                ><span class="el-icon-delete-solid"></span
-                >{{ scope.row.operation.delete }}</a
+                ><span class="el-icon-delete-solid"></span>删除</a
               ></template
             >
           </af-table-column>
@@ -49,7 +45,6 @@
             <el-button @click="toggleSelection(tableData)">全选</el-button>
             <el-button @click="toggleSelection()">取消</el-button>
           </div>
-
           <div class="fr">
             <Pagination
               :totalNum="tableData.length"
@@ -74,12 +69,12 @@ export default {
   name: 'StstemMain',
   data () {
     return {
-      tableData: [],
+      tableData: [{ operation: { details: '详情' } }],
       currentPage: 1, // 默认显示第一页
       pageSize: 10 // 默认每页显示10条
     }
   },
-  mounted () {
+  created () {
     // 请求表格数据
     this.getSystemTableData()
   },
@@ -103,8 +98,6 @@ export default {
           this.$refs.multipleTable.toggleRowSelection(row)
         })
       } else {
-        console.log(1)
-
         this.$refs.multipleTable.clearSelection()
       }
     },

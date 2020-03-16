@@ -55,7 +55,7 @@ export default {
       this.modules = res
     },
     async getLoginInfo () {
-      const res = await this.$http.get(ApiPath.center.loginInfo + '?username=张伟')
+      const res = await this.$http.get(ApiPath.center.loginInfo)
       console.log(res)
     }
   }

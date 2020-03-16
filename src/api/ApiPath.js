@@ -13,5 +13,8 @@ module.exports = {
   },
   system: {
     getSystemTableData: SERVER_HOST + '/system/getSystemTableData'
+  },
+  moduleSupport: {
+    getModuleTableData: SERVER_HOST + '/moduleSupport/getModuleTableData'
   }
 }
