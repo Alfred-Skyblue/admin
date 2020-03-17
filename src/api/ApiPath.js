@@ -22,5 +22,8 @@ module.exports = {
   // 组织架构数据
   organization: {
     getOrganizationTable: SERVER_HOST + '/organization/getOrganizationTable'
+  },
+  enterprise: {
+    setEnterprise: SERVER_HOST + '/enterprise/setEnterprise'
   }
 }
