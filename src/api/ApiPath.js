@@ -23,6 +23,13 @@ module.exports = {
   organization: {
     getOrganizationTable: SERVER_HOST + '/organization/getOrganizationTable'
   },
+<<<<<<< HEAD
+=======
+  // 业务处理数据
+  business: {
+    getBusinessList: SERVER_HOST + '/business/getBusinessList'
+  },
+>>>>>>> 2a0a00f23768caf46c08ed9a47451804b7e0b37f
   enterprise: {
     setEnterprise: SERVER_HOST + '/enterprise/setEnterprise'
   }
